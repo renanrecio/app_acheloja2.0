@@ -54,7 +54,7 @@ function setupPush() {
     
 	var push = PushNotification.init({
 		 "android": {
-			 "senderID": "121897226764"
+			 "senderID": "391844150545"
 		 },
 		 "ios": {
 		   "sound": true,
@@ -77,9 +77,9 @@ function setupPush() {
 	});
 
    push.on('registration', function(data) {
-       console.log("registration event: " + data.registrationId);
+      // console.log("registration event: " + data.registrationId);
        var oldRegId = localStorage.getItem('registrationId');
-	   alert('id: '+data.registrationId);
+	   //alert('id: '+data.registrationId);
        if (oldRegId !== data.registrationId) {
            // Save new registration ID
            localStorage.setItem('registrationId', data.registrationId);
