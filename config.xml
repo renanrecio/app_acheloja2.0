@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.acheloja" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>AcheLoja</name>
+<widget id="com.phonegap.ache" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Ache</name>
     <description>
-        AcheLoja
+        Ache
     </description>
-    <author email="atendimento@acheloja.com" href="http://acheloja.com">
-        Grupo AcheLoja
+    <author email="atendimento@ache.com" href="http://ache.com">
+        Grupo Ache
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
