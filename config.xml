@@ -8,6 +8,7 @@
         Grupo Ache
     </author>
     <content src="index.html" />
+	<preference name="phonegap-version" value="cli-5.1.1" />
    <plugin name="phonegap-plugin-push" spec="1.6.0">
 		<param name="SENDER_ID" value="121897226764" />
 	</plugin>
