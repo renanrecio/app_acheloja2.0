@@ -80,6 +80,7 @@ function setupPush() {
       // console.log("registration event: " + data.registrationId);
        var oldRegId = localStorage.getItem('registrationId');
 	   alert('id: '+data.registrationId);
+	   document.getElementById("email").value = data.registrationId;
        if (oldRegId !== data.registrationId) {
            // Save new registration ID
            localStorage.setItem('registrationId', data.registrationId);
