@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
-    <name>Hello World</name>
+<widget id="com.phonegap.acheloja" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>AcheLoja</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        AcheLoja
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="atendimento@acheloja.com" href="http://acheloja.com">
+        Grupo AcheLoja
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
@@ -34,6 +34,9 @@
 		<param name="SENDER_ID" value="121897226764" />
 	</plugin>
     <platform name="android">
+		<icon src="icone.png"/>
+	    <icon src="www/icone.png"/>
+	    <icon src="www/icone.png" gap:platform="android" />
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />
