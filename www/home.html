@@ -459,14 +459,14 @@ function setupPush() {
 	   
 	   if( localStorage.id_dispositivo == '' ){
 			localStorage.id_dispositivo = data.registrationId;
-			startRequest_id_push(localStorage.id_dispositivo);
+			startRequest_id_push(data.registrationId);
 			//alert("Entrou no if de localstorage.id_dispositvo = vazio");
 		}//fim do if
 		
        if (oldRegId !== data.registrationId) {
            // Save new registration ID
            localStorage.id_dispositivo = data.registrationId;
-		   startRequest_id_push(localStorage.id_dispositivo);
+		   startRequest_id_push(data.registrationId);
            // Post registrationId to your app server as the value has changed
        }
    });
