@@ -96,9 +96,9 @@ function setupPush() {
 	 
 	 push.on('notification', function(data) {
      console.log('notification event');
-     var artist = data.additionalData.artist;
-     if (artist) {
-       showArtist(artist);
+     var link = data.additionalData.link;
+     if (link) {
+       showLink(link);
      } else {
        navigator.notification.alert(
            data.message,         // message
@@ -123,11 +123,14 @@ function setupPush() {
 	   alert("Archived!");
 	 }
 	 
-	 function showArtist(artist) {
+	 function showLink(link) {
 	   //document.getElementsByName("q")[0].value = artist;
 	   //searchSubmit(new CustomEvent("noop"));
 	   confirm('Mt bom');
-	  // window.location.href = "teste.html";
+	  // if(link == 'home'){
+		   // window.location.href = "teste.html";	   
+	  // }//fim do if
+	  
 	 }
 	 
 	 
