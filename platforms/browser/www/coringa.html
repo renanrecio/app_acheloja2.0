@@ -82,78 +82,10 @@
 					}			
 
 				 </script>
-<script>
-//enviar o REG ID para o BD - para push notification
-			 
-			 
-			 
-			function createXMLHttpRequest_id_push() {
-			if (window.ActiveXObject) {
-			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-			else if (window.XMLHttpRequest) {
-			xmlHttp = new XMLHttpRequest();
-			}
-			}
-			
-			
-			function startRequest_id_push(reg_id) {
-			createXMLHttpRequest_id_push();
-			xmlHttp.onreadystatechange = handleStateChange_id_push;
-			
-			
-			var regid = reg_id.trim();
-			
-			regid = regid.replace(" ", "");
-			
-			localStorage.id_dispositivo = regid;
-			
-			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/app_reg_id_push_ajax.php", true);
-			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-			
-			xmlHttp.send("reg_id="+regid+"&id_usuario="+localStorage.id_usuario);
-			
-			
-		
-			}
 
-			
-			function handleStateChange_id_push() {
-			if(xmlHttp.readyState == 4) {
-			if(xmlHttp.status == 200) {
-				
-				
-				//Não fazer nada
-				
-				
-			}
-			}
-			}						
-</script>	
 
 		<title>AcheLoja</title>
 		</br></br>
-
-		<script>
-
-		function setDefault(){
-			  
-			 if( (document.getElementById("top_caso_voltar").value) != ''){
-				document.getElementById("contador_geral").value =  document.getElementById("contador_geral_caso_voltar").value;
-				document.getElementById("contador_geral_prod1").value =  document.getElementById("contador_geral_prod1_caso_voltar").value;
-				document.getElementById("contador_geral_prod2").value =  document.getElementById("contador_geral_prod2_caso_voltar").value;
-				document.getElementById("contador").value = document.getElementById("contador_caso_voltar").value;
-				document.getElementById("top").value = document.getElementById("top_caso_voltar").value;
-				document.getElementById("left").value = document.getElementById("left_caso_voltar").value;
-				  
-			 }//fim do iff
-			  
-		}
-
-		  
-		</script>
-
 
 			
 				<script>

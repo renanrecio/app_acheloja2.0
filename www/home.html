@@ -5,6 +5,19 @@
    <link rel="stylesheet" href="lib/font-awesome-4.5.0/css/font-awesome.min.css" />
 
   <title>AcheLoja</title>
+  
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<style>
+p, input, span,a,li,placeholder,select,option,td,tr{
+	font-family: 'Montserrat', sans-serif;
+}
+
+body{
+	
+	background-color: #F9F9F9;
+}
+</style>
 </head>
 
 <body>
@@ -242,7 +255,7 @@
 					xmlHttp.onreadystatechange = handleStateChange;
 					
 					
-					xmlHttp.open("POST", "http://54.207.38.125/AcheLoja2.0/m/ajax_vitrines_favoritas_app.php", true);
+					xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_vitrines_favoritas_app.php", true);
 					xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&id_usuario="+ localStorage.id_usuario +"&tem_loja_na_cidade=1");
@@ -288,8 +301,8 @@
 						document.getElementById("top").value = str.substring((pos_t+2), pos_l);
 						document.getElementById("left").value = str.substring((pos_l+2), str.length);
 						
-						//if( (document.getElementById("div_produtos").innerHTML) == '') document.getElementById("msg_sem_lojas").style.visibility = "visible";
-						if( document.getElementById("contador_geral").value < 1 ) document.getElementById("msg_sem_lojas").style.visibility = "visible";
+						if( (document.getElementById("div_produtos").innerHTML) == '') document.getElementById("msg_sem_lojas").style.visibility = "visible";
+						//if( document.getElementById("contador_geral").value < 1 ) document.getElementById("msg_sem_lojas").style.visibility = "visible";
 
 						
 						
