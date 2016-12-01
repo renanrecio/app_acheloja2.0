@@ -5,7 +5,7 @@
         Os produtos das melhores Lojas perto de você.
     </description>
     <author email="atendimento@acheloja.com" href="http://acheloja.com">
-        Grupo AcheLoja
+        AcheLoja
     </author>
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
