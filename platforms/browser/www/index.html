@@ -81,6 +81,23 @@ startRequest_login();
 
 </script>
 
+
+<!-- Verificar se é o primeiro loggin-->
+<script>
+if(typeof localStorage.nome_usuario === "undefined"){
+
+localStorage.nome_usuario = '';
+localStorage.id_dispositivo = '';
+localStorage.cep_bairro = '';
+localStorage.cidade = '';
+localStorage.mudou_de_usuario = '';
+localStorage.id_usuario = '';
+
+
+}
+
+</script>
+
 	
 <!-- Verificar se já está logado-->
 <script>
