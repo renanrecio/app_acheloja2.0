@@ -283,10 +283,13 @@ function desaparecer_detalhes(e){
 				if(!confirm("Tem certeza que Não quer mais seguir essa Loja?")){
 					return false;
 				}	
+					
+					document.getElementById("img_carregando").style.visibility = "visible";
+								
 					createXMLHttpRequest_deixar_de_seguir();
 					xmlHttp.onreadystatechange = handleStateChange_deixar_de_seguir;
 					
-					xmlHttp.open("POST", "http://54.207.38.125/AcheLoja2.0/validar/deixar_de_seguir.php", true);
+					xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/deixar_de_seguir.php", true);
 					xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp.send("id_usuario="+id_usuario+"&id_anuncio="+id_anuncio);
@@ -319,16 +322,19 @@ function desaparecer_detalhes(e){
 			}
 
 			function startRequest_comecar_seguir(id_usuario, id_anuncio) {
+			
+			document.getElementById("img_carregando").style.visibility = "visible";
+			
 			createXMLHttpRequest_comecar_seguir();
 			xmlHttp.onreadystatechange = handleStateChange_comecar_seguir;
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja2.0/validar/comecar_seguir.php", true);
+			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/comecar_seguir.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_usuario="+id_usuario+"&id_anuncio="+id_anuncio);
 			
 			
-			//document.getElementById("msg_enviado").style.visibility = "visible";
+			
 			
 			//alert("Emails enviados com Sucesso!");
 			}
@@ -359,7 +365,7 @@ function desaparecer_detalhes(e){
 			createXMLHttpRequest_novos_seguidores();
 			xmlHttp.onreadystatechange = handleStateChange_novos_seguidores;
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja2.0/validar/cliques_ajax.php", true);
+			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/cliques_ajax.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id="+id+"&tipo=novos_seguidores");
@@ -388,6 +394,7 @@ function desaparecer_detalhes(e){
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 </script> 
+
 
 </body>
 </html>

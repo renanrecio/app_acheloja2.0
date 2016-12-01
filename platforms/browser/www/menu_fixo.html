@@ -98,7 +98,7 @@ document.getElementById("nome_usuario").innerHTML = nome_menu;
 					createXMLHttpRequest_novidades();
 					xmlHttp2.onreadystatechange = handleStateChange_novidades;
 					
-					xmlHttp2.open("POST", "http://54.207.38.125/AcheLoja2.0/m/ajax_novidades_usuario_app.php", true);
+					xmlHttp2.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_novidades_usuario_app.php", true);
 					xmlHttp2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp2.send("id_usuario="+localStorage.id_usuario+"");
@@ -171,7 +171,9 @@ $(function () {
 <script language="javascript" type="text/javascript">
 	
 	function chamar_vitrine(nick_site, id_anuncio){
-			
+		
+		document.getElementById("img_carregando").style.visibility = "visible";
+		
 		startRequest_clique_produtos(id_anuncio);
 		
 		localStorage.nick_site = nick_site;
@@ -201,7 +203,7 @@ $(function () {
 			createXMLHttpRequest_clique_produtos();
 			xmlHttp2.onreadystatechange = handleStateChange_clique_produtos;
 			
-			xmlHttp2.open("POST", "http://54.207.38.125/AcheLoja2.0/validar/cliques_ajax.php", true);
+			xmlHttp2.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/cliques_ajax.php", true);
 			xmlHttp2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp2.send("id="+id+"&tipo=clique_produto");
@@ -224,3 +226,10 @@ $(function () {
 			}
 			}
 </script>
+
+
+ <div id="img_carregando" style=" position: fixed; visibility: hidden; top:0em; height:100%; width:100%; opacity: 0.8; filter: alpha(opacity=80); background-color: white;">
+	 <center>
+		<img  src="http://54.207.38.125/AcheLoja3.0/fotos/carregando_novo.gif" style="border-radius:25px; position: relative; top:17em;  width:90%;" />
+	 </center>
+ </div>

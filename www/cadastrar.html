@@ -44,7 +44,7 @@ var xmlHttp;
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 				
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja2.0/m/ajax_cadastra_usuario_app.php", true);
+			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_cadastra_usuario_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("nome=" + document.getElementById("nome").value + "&email=" + document.getElementById("email").value +  "&senha=" + document.getElementById("senha").value + "");
@@ -91,6 +91,8 @@ var xmlHttp;
 							
 				}else{
 					
+					
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					alert('Ocorreu algum erro, tente novamente');
 					
 				}//fim do else
@@ -161,10 +163,13 @@ var xmlHttp;
 			createXMLHttpRequest4();
 			xmlHttp.onreadystatechange = handleStateChange4;
 			
+			document.getElementById("img_carregando").style.visibility = "visible";
+			
 			   if(document.getElementById("nome").value == ''){
 					
 					alert("Preencha o seu nome!");
 					document.getElementById("nome").focus();
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					return false;
 					
 				}
@@ -174,6 +179,7 @@ var xmlHttp;
 						
 						alert("Preencha o seu email!");
 						document.getElementById("email").focus();
+						document.getElementById("img_carregando").style.visibility = "hidden";
 						return false;
 				}
 				
@@ -181,6 +187,7 @@ var xmlHttp;
 					
 					alert("Preencha o campo confirmar email!");
 					document.getElementById("confirmar_email").focus();
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					return false;
 					
 				}
@@ -189,6 +196,7 @@ var xmlHttp;
 					
 					alert("O email e a confirmação do email estão diferentes! Corrija, por favor!");
 					document.getElementById("email").focus();
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					return false;
 					
 				}
@@ -198,20 +206,25 @@ var xmlHttp;
 					
 					alert("Preencha o campo senha!");
 					document.getElementById("senha").focus();
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					return false;
 					
 				}
 				
 				if(ValidarEmail(document.getElementById("email")) == false){
+					
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					return false;
 				}
 				
 				if(ValidarEmail(document.getElementById("confirmar_email")) == false){
+					
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					return false;
 				}
 			
 			
-			xmlHttp.open("GET", "http://54.207.38.125/AcheLoja2.0/validar/email.php?email="+document.getElementById("email").value+"", true);
+			xmlHttp.open("GET", "http://54.207.38.125/AcheLoja3.0/validar/email.php?email="+document.getElementById("email").value+"", true);
 			
 			
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -232,6 +245,7 @@ var xmlHttp;
 					//document.getElementById("email_aviso").innerHTML = "<?php echo $traducao['email_ja_cadastrado']; ?>";
 					alert("Email já cadastrado, verifique se já possui cadastro no AcheLoja!")
 					document.getElementById("email").focus();
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					return false;
 					
 				}else{
@@ -425,6 +439,12 @@ textarea {
 	});
 	
 </script>  
+
+ <div id="img_carregando" style=" position: fixed; visibility: hidden; top:0em; height:100%; width:100%; opacity: 0.8; filter: alpha(opacity=80); background-color: white;">
+	 <center>
+		<img  src="http://54.207.38.125/AcheLoja3.0/fotos/carregando_novo.gif" style="border-radius:25px; position: relative; top:17em;  width:90%;" />
+	 </center>
+ </div>
 
 		
 </body>
