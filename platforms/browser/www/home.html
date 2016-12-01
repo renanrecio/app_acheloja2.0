@@ -57,7 +57,7 @@
 					createXMLHttpRequest_visualizacao_produtos();
 					xmlHttp.onreadystatechange = handleStateChange_visualizacao_produtos;
 					
-					xmlHttp.open("POST", "http://54.207.38.125/AcheLoja2.0/validar/cliques_ajax.php", true);
+					xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/cliques_ajax.php", true);
 					xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp.send("id="+id+"&tipo=visualizacao_produto");
@@ -82,6 +82,55 @@
 					}			
 
 				 </script>
+<script>
+//enviar o REG ID para o BD - para push notification
+			 
+			 
+			 
+			function createXMLHttpRequest_id_push() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest_id_push(reg_id) {
+			createXMLHttpRequest_id_push();
+			xmlHttp.onreadystatechange = handleStateChange_id_push;
+			
+			
+			var regid = reg_id.trim();
+			
+			regid = regid.replace(" ", "");
+			
+			localStorage.id_dispositivo = regid;
+			
+			
+			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/app_reg_id_push_ajax.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("reg_id="+regid+"&id_usuario="+localStorage.id_usuario);
+			
+			
+		
+			}
+
+			
+			function handleStateChange_id_push() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				//Não fazer nada
+				
+				
+			}
+			}
+			}						
+</script>	
 
 		<title>AcheLoja</title>
 		</br></br>
@@ -282,7 +331,7 @@
 							createXMLHttpRequest_visualizar_vitrine();
 							xmlHttp.onreadystatechange = handleStateChange_visualizar_vitrine;
 							
-							xmlHttp.open("POST", "http://54.207.38.125/AcheLoja2.0/validar/atualizar_visualizacao_minhas_vitrine.php", true);
+							xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/atualizar_visualizacao_minhas_vitrine.php", true);
 							xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 							
 							xmlHttp.send("id_usuario="+localStorage.id_usuario+"");
@@ -332,6 +381,152 @@
 		<script>
 		startRequest_mais_produtos();
 		</script> 	
+		
+		<div class="app" style="visibility:hidden;">
+        <div id="deviceready" class="blink" style="visibility:hidden;">
+            <p class="event listening"></p>
+            <p class="event received"></p>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+	
+    <script type="text/javascript">
+	var app = {
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        app.receivedEvent('deviceready');
+    },
+    // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        var listeningElement = parentElement.querySelector('.listening');
+        var receivedElement = parentElement.querySelector('.received');
+
+        listeningElement.setAttribute('style', 'display:none;');
+        receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+		setupPush();
+    }
+};
+
+
+function setupPush() {
+    
+	var push = PushNotification.init({
+		 "android": {
+			 "senderID": "121897226764"
+		 },
+		 "ios": {
+		   "sound": true,
+		   "alert": true,
+		   "badge": true,
+		   "categories": {
+			 "newmusic": {
+				 "yes": {
+					 "callback": "playMusic", "title": "Play",
+					 "foreground": true, "destructive": false
+				 },
+				 "no": {
+					 "callback": "archive", "title": "Archive",
+					 "foreground": false, "destructive": false
+				 }
+			 }
+		   }
+		 },
+		 "windows": {}
+	});
+
+   push.on('registration', function(data) {
+      // console.log("registration event: " + data.registrationId);
+       var oldRegId = localStorage.id_dispositivo;
+	   alert('id: '+data.registrationId);
+	   //document.getElementById("email").value = data.registrationId;
+	   
+	   if( localStorage.id_dispositivo == '' ){
+			localStorage.id_dispositivo = data.registrationId;
+			startRequest_id_push(data.registrationId);
+			//alert("Entrou no if de localstorage.id_dispositvo = vazio");
+		}//fim do if
+		
+       if (oldRegId !== data.registrationId) {
+           // Save new registration ID
+           localStorage.id_dispositivo = data.registrationId;
+		   startRequest_id_push(data.registrationId);
+           // Post registrationId to your app server as the value has changed
+       }
+   });
+
+   push.on('error', function(e) {
+       console.log("push error = " + e.message);
+   });
+   
+ 
+	 
+	 push.on('notification', function(data) {
+     console.log('notification event');
+     var link = data.additionalData.link;
+     if (link) {
+       showLink(link);
+     } else {
+       navigator.notification.alert(
+           data.message,         // message
+           null,                 // callback
+           data.title,           // title
+           'Ok'                  // buttonName
+       );         
+     }
+
+		 push.finish(function() {
+			 console.log('success');
+		 }, function() {
+			 console.log('error');
+		 });     
+	 });
+		 
+	 function playMusic() {
+	   alert("Play Music!");	
+	 }
+
+	 function archive() {
+	   alert("Archived!");
+	 }
+	 
+	 function showLink(link) {
+	   //document.getElementsByName("q")[0].value = artist;
+	   //searchSubmit(new CustomEvent("noop"));
+	   confirm('Mt bom');
+	  // if(link == 'home'){
+		   // window.location.href = "teste.html";	   
+	  // }//fim do if
+	  
+	 }
+	 
+	 
+		
+ }
+	</script>
+    <script type="text/javascript">
+	
+        app.initialize();	
+    </script>
+
+
+
 
 
 </body>

@@ -81,6 +81,27 @@ startRequest_login();
 
 </script>
 
+	
+<!-- Verificar se já está logado-->
+<script>
+
+var nome_usuario_guardado = localStorage.nome_usuario;
+
+if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefined") ){
+
+	window.location.href="home.html";
+	exit();
+	
+}else{
+
+	localStorage.id_dispositivo = '';
+	localStorage.cep_bairro = '';
+	localStorage.cidade = '';
+
+}
+
+			
+</script>	
 
 
 
@@ -245,42 +266,7 @@ startRequest_login();
 			//alert(windowHeight);
 </script>	
 
-	<div class="app" style="visibility:hidden;">
-        <div id="deviceready" class="blink" style="visibility:hidden;">
-            <p class="event listening"></p>
-            <p class="event received"></p>
-        </div>
-    </div>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-		
-    </script>
-
 	
-<!-- Verificar se já está logado-->
-<script>
-
-var nome_usuario_guardado = localStorage.nome_usuario;
-
-if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefined") ){
-
-	window.location.href="home.html";
-	exit();
-	
-}else{
-
-	localStorage.id_dispositivo = '';
-	localStorage.cep_bairro = '';
-	localStorage.cidade = '';
-
-}
-
-			
-</script>	
-
-
 </body>
 
 

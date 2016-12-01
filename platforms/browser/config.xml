@@ -1,17 +1,17 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.phonegap.ache" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.acheloja" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
     <feature name="Camera">
         <param name="browser-package" value="Camera" />
     </feature>
     <feature name="Device">
         <param name="browser-package" value="Device" />
     </feature>
-    <name>Ache</name>
+    <name>AcheLoja</name>
     <description>
-        Ache
+        AcheLoja
     </description>
-    <author email="atendimento@ache.com" href="http://ache.com">
-        Grupo Ache
+    <author email="atendimento@acheloja.com" href="http://acheloja.com">
+        Grupo AcheLoja
     </author>
     <content src="index.html" />
     <access origin="*" />
