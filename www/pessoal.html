@@ -926,7 +926,8 @@ function alterar_senha(){
 	-->
 <script>
 
-if( (localStorage.foto_usuario) != '') document.getElementById("foto_perfil_menu").src = localStorage.foto_usuario;
+//if( (localStorage.foto_usuario) != '') 
+if( ( (localStorage.foto_usuario) != '') && (typeof (localStorage.foto_usuario) !== "undefined") ) document.getElementById("foto_perfil_menu").src = localStorage.foto_usuario;
 
 
 var nome_menu = localStorage.nome_usuario;

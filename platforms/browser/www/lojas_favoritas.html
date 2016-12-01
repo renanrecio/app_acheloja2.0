@@ -44,7 +44,7 @@
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja2.0/m/ajax_lojas_favoritas_app.php", true);
+			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_lojas_favoritas_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_usuario="+localStorage.id_usuario);
@@ -62,6 +62,8 @@
 				
 				
 				document.getElementById("div_lojas_favoritas").innerHTML = document.getElementById("div_lojas_favoritas").innerHTML + str;
+				
+				//alert(str.length);
 				
 				if( (document.getElementById("div_lojas_favoritas").innerHTML) == '') document.getElementById("msg_sem_lojas").style.visibility = "visible";
 
@@ -84,6 +86,11 @@
 
 <div id="div_lojas_favoritas" style="position:absolute; width:100%; top:16%; left:0%;"></div>
 
+<div id="msg_sem_lojas"	style="position: absolute; top:0%; left:0%; width:100%; height:120%; visibility: hidden;" >
+	
+		<img src="http://54.207.38.125/AcheLoja3.0/fotos/passo_a_passo_mobile.png"  style=" position:absolute; top:4em; background-color: #0054a6; width:80%; left:10%;" /> 
+			
+</div>
 
 	
 <div id="menu">
@@ -164,14 +171,6 @@
 </script>	
 
 
-
- <div id="msg_sem_lojas" style="visibility: hidden; position: absolute; top:15%; width:90%; left:5%; height:70%; background-color: black; opacity:0.70; filter:alpha(opacity=70);">
- 
-	<p style="color: white; font-size:1em;">Você ainda <b>não</b> está </br> <b>SEGUINDO</b> nenhuma Loja. </br></br>Clique no botão </br><a href="busca.html"><img src="fotos/lupa.png" width="100%"  style=" background-color: #0054a6; width:2.8em; height:2.8em;" /> </a></br>
-	para achar Produtos, Lojas e assim <b style="color:#0054a9;">SEGUIR SUAS LOJAS FAVORITAS</b>. </br> </br> Aqui aparecerão suas <b style="color:#0054a9;">Lojas Favoritas</b> que estará <b>seguindo</b>!!</p>
- 
- 
- </div>
  
 
 </body>

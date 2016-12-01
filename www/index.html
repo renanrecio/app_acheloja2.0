@@ -227,6 +227,16 @@ if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefine
 						
 						//alert(str);
 						
+						if( (str.substring((pos_id+3), pos_nome)) != (localStorage.id_usuario) ){ 
+						
+							localStorage.mudou_de_usuario = "1";
+							
+						}else{
+							
+							localStorage.mudou_de_usuario = "0";
+						
+						}
+						
 						localStorage.id_usuario = str.substring((pos_id+3), pos_nome);
 						localStorage.nome_usuario = str.substring((pos_nome+5), pos_foto);
 						localStorage.foto_usuario = str.substring((pos_foto+5), pos_email);

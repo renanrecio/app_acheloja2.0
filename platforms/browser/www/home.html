@@ -161,8 +161,13 @@
 					document.getElementsByTagName('body')[0].style.height = windowHeight + "px";
 					//alert(windowHeight);
 				</script>
+		
+		<div id="msg_sem_lojas"	style="position: absolute; top:0%; left:0%; width:100%; height:120%; visibility: hidden;" >
+		
+			<img src="http://54.207.38.125/AcheLoja3.0/fotos/passo_a_passo_mobile.png"  style=" position:absolute; top:4em; background-color: #0054a6; width:80%; left:10%;" /> 
 				
-				
+		</div>
+		
 		<div id="div_produtos" style="position: absolute; top:10%; left:0%; width:100%;" ></div>	
 			
 		<div id="menu">
@@ -283,7 +288,8 @@
 						document.getElementById("top").value = str.substring((pos_t+2), pos_l);
 						document.getElementById("left").value = str.substring((pos_l+2), str.length);
 						
-						if( (document.getElementById("div_produtos").innerHTML) == '') document.getElementById("msg_sem_lojas").style.visibility = "visible";
+						//if( (document.getElementById("div_produtos").innerHTML) == '') document.getElementById("msg_sem_lojas").style.visibility = "visible";
+						if( document.getElementById("contador_geral").value < 1 ) document.getElementById("msg_sem_lojas").style.visibility = "visible";
 
 						
 						
@@ -367,14 +373,14 @@
 		 <a href="home.html"><img src="fotos/casa_selecionada.png" width="100%" style=" position:fixed; background-color: #0054a6; bottom:0em; left:10%; width:2.8em; height:2.8em;" /> </a>
 
 
+		<!-- 
 		 <div id="msg_sem_lojas" style="visibility: hidden; position: absolute; top:10%; width:90%; left:5%; height:75%; background-color: black; opacity:0.70; filter:alpha(opacity=70);">
 		 
 			<p style="color: white; font-size:1em;">Você ainda <b>não</b> está </br> <b>SEGUINDO</b> nenhuma Loja. </br></br>Clique no botão </br><a href="busca.html"><img src="fotos/lupa.png" width="100%"  style=" background-color: #0054a6; width:2.8em; height:2.8em;" /> </a></br>
 			para achar Produtos, Lojas e assim <b style="color:#0054a9;">SEGUIR SUAS LOJAS FAVORITAS</b>. </br> </br> Aqui aparecerão as <b style="color:#0054a9;">novidades</b> em <b style="color:#0054a9;">PRODUTOS</b> das suas <b style="color:#0054a9;">Lojas Favoritas</b> que estará <b>seguindo</b>!!</p>
-		 
-		 
+		
 		 </div>
-		 
+		 -->
 		 
 		 
 		 
@@ -454,21 +460,26 @@ function setupPush() {
    push.on('registration', function(data) {
       // console.log("registration event: " + data.registrationId);
        var oldRegId = localStorage.id_dispositivo;
-	   alert('id: '+data.registrationId);
+	   //alert('id: '+data.registrationId);
 	   //document.getElementById("email").value = data.registrationId;
 	   
-	   if( localStorage.id_dispositivo == '' ){
-			localStorage.id_dispositivo = data.registrationId;
-			startRequest_id_push(data.registrationId);
-			//alert("Entrou no if de localstorage.id_dispositvo = vazio");
-		}//fim do if
-		
-       if (oldRegId !== data.registrationId) {
+	    if (oldRegId !== data.registrationId) {
            // Save new registration ID
            localStorage.id_dispositivo = data.registrationId;
 		   startRequest_id_push(data.registrationId);
            // Post registrationId to your app server as the value has changed
-       }
+        }else{
+		
+		   if( localStorage.mudou_de_usuario == "1" ){
+		   
+				localStorage.id_dispositivo = data.registrationId;
+				startRequest_id_push(data.registrationId);
+				 localStorage.mudou_de_usuario = "0";
+				 
+			}//fim do if
+	
+		}//fim do else
+		
    });
 
    push.on('error', function(e) {
