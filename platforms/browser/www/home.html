@@ -471,7 +471,7 @@ function setupPush() {
 				 
 		}else{
 		
-			if( (oldRegId != data.registrationId) ||  (typeof oldRegId !== "undefined") ) {
+			if(oldRegId !== data.registrationId) {
 			   // Save new registration ID
 			   localStorage.id_dispositivo = data.registrationId;
 			   startRequest_id_push(data.registrationId);
@@ -520,10 +520,11 @@ function setupPush() {
 	 function showLink(link) {
 	   //document.getElementsByName("q")[0].value = artist;
 	   //searchSubmit(new CustomEvent("noop"));
-	   confirm('Mt bom');
-	  // if(link == 'home'){
-		   // window.location.href = "teste.html";	   
-	  // }//fim do if
+	   
+	   //confirm('Mt bom');
+	  if(link == true){
+		    window.location.href = "home.html";	   
+	   }//fim do if
 	  
 	 }
 	 

@@ -64,7 +64,7 @@ document.getElementById("nome_usuario").innerHTML = nome_menu;
 					createXMLHttpRequest_abrir_novidades();
 					xmlHttp2.onreadystatechange = handleStateChange_abrir_novidades;
 					
-					xmlHttp2.open("POST", "http://54.207.38.125/AcheLoja2.0/validar/abrir_novidades.php", true);
+					xmlHttp2.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/abrir_novidades.php", true);
 					xmlHttp2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp2.send("id_usuario="+localStorage.id_usuario+"");
