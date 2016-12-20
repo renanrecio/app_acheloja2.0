@@ -1,364 +1,284 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-  <!--
-    Customize this policy to fit your own app's needs. For more guidance, see:
-      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
-    Some notes:
-      * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-      * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-      * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-    -->
-  <!-- Removing 'unsafe-eval'. If needed, I will figure out a way around it -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com https://api.spotify.com 'unsafe-eval' 'unsafe-inline' ws://*; style-src 'self' 'unsafe-inline'; media-src *; img-src * data:">
 
-  <!-- Required meta tags-->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
-  <link rel="stylesheet" href="lib/font-awesome-4.5.0/css/font-awesome.min.css" />
+<meta http-equiv="X-UA-Compatible" content="IE=10" />
 
-  <title>Star Track</title>
+<meta name="google-site-verification" content="Wiq9h-MVFjBO3hYHciruU4k0Wk08XVFGfFgvRQi_YPM" />
+
+<meta name="Keywords" content="publicar, publicar do brasil, listaonline, lista online, guia, guia de lojas, empresa, acheloja.com, lojas, loja, lista, busca de lojas, busca de produtos, guia local, busca local, consulta serviços produtos, lista telefonica, telefones, endereços." />
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+
+<meta name="description" content="Você escolhe o que quer comprar e onde, e o acheloja.com acha o estabelecimento mais próximo de você!">
+
+
+<link rel="stylesheet" type="text/css" href="Folha_Estilo.css" media="screen" />
+
+<style>
+body
+{
+	background:url(fotos/fundo2.jpg);
+	background-size: 100%;
+
+}
+</style>
+
+<style>
+
+input,
+textarea {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+	border:0px dashed;
+    background-color: #0070a1;
+}
+
+::-webkit-input-placeholder {
+   color: lightgray;
+   font: 1em verdana, arial, sans-serif;
+}
+
+:-moz-placeholder {
+   color: lightgray;
+   font: 1em verdana, arial, sans-serif;
+}
+
+</style>
+
+
+<title>AcheLoja</title>
+</br></br>
+
+<script>
+
+
+function enviar_dados(){
+
+
+if (document.getElementById('email').value == ''){
+
+	alert('O campo E-mail está vazio, por favor preencha!');
+	document.getElementById('email').focus();
+	return false;
+
+}
+
+
+if (document.getElementById('senha').value == ''){
+
+	
+	alert('O campo Senha está vazio, por favor preencha!');
+	document.getElementById('senha').focus();
+	return false;
+
+}
+
+startRequest_login();
+
+}
+
+</script>
+
+
+
+<!-- Verificar se é o primeiro loggin-->
+<script>
+if(typeof localStorage.nome_usuario === "undefined"){
+
+localStorage.nome_usuario = '';
+localStorage.id_dispositivo = '';
+localStorage.cep_bairro = '';
+localStorage.cidade = '';
+localStorage.mudou_de_usuario = '';
+localStorage.id_usuario = '';
+
+
+}
+
+</script>
+
+
+<!-- Verificar se já está logado-->
+<script>
+
+var nome_usuario_guardado = localStorage.nome_usuario;
+
+if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefined") ){
+
+	window.location.href="home.html";
+	exit();
+	
+}else{
+
+	localStorage.id_dispositivo = '';
+	localStorage.cep_bairro = '';
+	localStorage.cidade = '';
+
+}
+
+			
+</script>	
+
+
 </head>
+    <!-- <body style="position: absolute; width:96%; height:auto; top:0%; left:0%;">-->
+	<body>
+	<div id="tela" style="position:absolute; width:100%; height:auto; top:0em; left:0%;">
+		
+		<img style="position:absolute; width:80%; top:8%; left:10%;" src="fotos/logo2.png" />
+		
+		<form action="">
+				<input id="email" name="email" type="text" style="position: absolute; top:18%; left:5%; height: 5%; width:90%;  font-size:1.5em; color:white;"   placeholder=" E-mail" />
+				<input id="senha" name="senha" type="password" style="position: absolute; top:25%; left:5%; height: 5%; width:90%;  font-size:1.5em; color:white;"  placeholder=" Senha" />		
+		</form>
+		
+		<input onclick="enviar_dados()" type="submit" style="position: absolute; top:32%; left:5%; height: 5%; width:90%;  font-weight: bold; color:white; background-color: #0070a1; font-size:1.5em; cursor: pointer; border-radius: 5px; opacity: 1; filter: alpha(opacity=100);" Value="Entrar"/>
+			
+		<a href="recuperar_senha.html"><span style="position:absolute; top:40%; width:80%; left:10%; "> Esqueceu a senha? Clique aqui...</span></a>
+		
+		<hr style="position:absolute; top:45%; width:80%; left:10%;"/>
+		
+		<a href="cadastrar.html" style="text-decoration:none;"><span style="position:absolute; top:50%; width:80%; left:10%; color:#0070a1; font-weight: bolder; font-size:1.1em;"> Não possui Cadastro? </br>Clique aqui para se Cadastrar...</span></a>
+		
+	
+		<!--
+	
+		<img style="position:absolute; width:80%; top:15%; left:10%;" src="fotos/logo2.png" />
+		
+		<form action="">
+				<input id="email" name="email" type="text" style="position: absolute; top:30%; left:5%; height: 7%; width:90%;  font-size:1.5em; color:white;"   placeholder=" E-mail" />
+				<input id="senha" name="senha" type="password" style="position: absolute; top:40%; left:5%; height: 7%; width:90%;  font-size:1.5em; color:white;"  placeholder=" Senha" />		
+		</form>
+		
+		<input onclick="enviar_dados()" type="submit" style="position: absolute; top:50%; left:5%; height: 7%; width:90%;  font-weight: bold; color:white; background-color: #0070a1; font-size:1.5em; cursor: pointer; border-radius: 5px; opacity: 1; filter: alpha(opacity=100);" Value="Entrar"/>
+			
+		<a href="recuperar_senha.html"><span style="position:absolute; top:60%; width:80%; left:10%; "> Esqueceu a senha? Clique aqui...</span></a>
+		
+		<hr style="position:absolute; top:70%; width:80%; left:10%;"/>
+		
+		<a href="cadastrar.html" style="text-decoration:none;"><span style="position:absolute; top:77%; width:80%; left:10%; color:#0070a1; font-weight: bolder; font-size:1.1em;"> Não possui Cadastro? </br>Clique aqui para se Cadastrar...</span></a>
+		
+		-->
 
-<body class="theme-green">
-  <!-- Status bar overlay for full screen mode (PhoneGap) -->
-  <div class="statusbar-overlay"></div>
+<!-- Validação do forumlário -->
+<script type="text/javascript">
+			var xmlHttp;
 
-  <!-- Panels overlay-->
-  <div class="panel-overlay"></div>
-  <!-- Left panel with cover effect-->
-  <div class="panel panel-left panel-cover">
-    <!--<div class="content-block">-->
-    <div class="content-block-title">Menu</div>
-    <div class="list-block">
-      <ul>
-        <li>
-          <a href="#" class="search-link item-content list-panel-all close-panel item-link">
-            <div class="item-inner">
-              <div class="item-title">Search</div>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="#" class="favorites-link item-content list-panel-all close-panel item-link">
-            <div class="item-inner">
-              <div class="item-title">Favorites</div>
-            </div>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
+			function createXMLHttpRequest_login() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
 
-  <!-- Views -->
-  <div class="views">
-    <!-- Your main view, should have "view-main" class -->
-    <div class="view view-main">
-      <!-- Top Navbar-->
-      <div class="navbar">
-        <div class="navbar-inner" data-page="index">
-          <div class="left">
-            <!--
-              Left link contains only icon - additional "icon-only" class
-              Additional "open-panel" class tells app to open panel when we click on this link
-            -->
-            <a href="#" class="link icon-only open-panel"><i class="fa fa-bars"></i></a>
-          </div>
-          <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-          <div class="center sliding">Search</div>
-        </div>
-      </div>
-      <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-      <div class="pages navbar-through toolbar-through">
-        <!-- Page, "data-page" contains page name -->
-        <div data-page="index" class="page">
-          <!-- Scrollable page content -->
-          <div class="page-content">
-            <form action="#" method="GET" id="search">
-              <div class="content-block-title"></div>
-              <div class="list-block">
-                <ul>
-                  <li>
-                    <div class="item-content">
-                      <div class="item-inner">
-                        <div class="item-input">
-                          <input type="text" name="q"
-                            placeholder="track, artist or album"
-                            autocorrect="off" autocapitalize="off">
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-                  <li class="item-divider">Limit to:</li>
-                  <li>
-                    <label class="label-radio item-content">
-                      <input type="radio" name="filter" value="track">
-                      <div class="item-media">
-                        <i class="icon icon-form-radio"></i>
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title">Track name</div>
-                      </div>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="label-radio item-content">
-                      <input type="radio" name="filter" value="artist">
-                      <div class="item-media">
-                        <i class="icon icon-form-radio"></i>
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title">Artist name</div>
-                      </div>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="label-radio item-content">
-                      <input type="radio" name="filter" value="album">
-                      <div class="item-media">
-                        <i class="icon icon-form-radio"></i>
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title">Album name</div>
-                      </div>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="label-radio item-content">
-                      <!-- Checked by default -->
-                      <input type="radio" name="filter" value="all" checked>
-                      <div class="item-media">
-                        <i class="icon icon-form-radio"></i>
-                      </div>
-                      <div class="item-inner">
-                        <div class="item-title">All of the above</div>
-                      </div>
-                    </label>
-                  </li>
-                </ul>
-              </div>
-              <input type="hidden" name="limit" value="25" />
-              <div class="content-block">
-                <input type="submit" class="button button-big button-fill search-submit" value="Find Tracks" />
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+			function startRequest_login() {
+			createXMLHttpRequest_login();
+			xmlHttp.onreadystatechange = handleStateChange_login;
+			
+			
+			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/login_app.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("email=" + document.getElementById("email").value  + "&senha=" + document.getElementById("senha").value);
+			
+			
+			
+			document.getElementById("img_carregando").style.visibility = "visible";
+			
+			}
 
-  <script type="text/template7" id="results">
-    <!-- Dynamic navbar for iOS theme -->
-    {{#if @global.ios}}
-    <div class="navbar">
-        <div class="navbar-inner">
-            <div class="left sliding">
-                <a href="#" class="back link">
-                  <i class="icon icon-back"></i>
-                  <span>Search</span>
-                </a>
-            </div>
-            <div class="center sliding">Results</div>
-        </div>
-    </div>
-    {{/if}}
+			
+			function handleStateChange_login() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
+			//document.getElementById("verifica_login").value = xmlHttp.responseText;
+			
+				var str = xmlHttp.responseText;
+				
+				str = str.trim();
+				
+				if(str == '0'){
+				
+					alert("E-mail e senha não conferem!Tente novamente! =D");
+				
+				}
+				
+				if(str == "adm"){
+				
+					alert("Você possui cadastro como administrador, esse App é somente para Usuários. Para acessar como ADM entre pelo site acheloja.com!");
+				
+				}
+				
+				if(str == "lojista"){
+					
+					alert("Você possui cadastro como Lojista, esse App é somente para Usuários. Para acessar como Lojista entre pelo site acheloja.com! Obrigado!");
+				
+				}
+			
+				//alert(str);
+				
+				if( (str != '0') && (str != "adm") && (str != "lojista") ){
+				
+						
+						
+						var pos_id = str.indexOf("#id");
+						var pos_nome = str.indexOf("#nome");
+						var pos_foto = str.indexOf("#foto");
+						var pos_email = str.indexOf("#email"); 
+						
+						
+						//alert(str);
+						
+						localStorage.id_usuario = str.substring((pos_id+3), pos_nome);
+						localStorage.nome_usuario = str.substring((pos_nome+5), pos_foto);
+						localStorage.foto_usuario = str.substring((pos_foto+5), pos_email);
+						localStorage.email_usuario = str.substring((pos_email+6), str.length);
 
-    <div class="page" data-page="results">
-        <!-- Fixed navbar for Material theme -->
-        {{#if @global.material}}
-        <div class="navbar">
-            <div class="navbar-inner">
-              <div class="left">
-                <a href="#" class="back link"><i class="icon icon-back"></i></a>
-              </div>
-              <div class="center">Results</div>
-            </div>
-        </div>
-        {{/if}}
+						//form[0].submit;
+						window.location.href="home.html";
+							
+							
+				}//fim do if
+				
+				
+				document.getElementById("img_carregando").style.visibility = "hidden";
+				
+			}
+			}
+			}
+			
+		
+			
+			
+			
+</script>    		
+		
 
-        <div class="page-content">
-          <div class="content-block-title">{{tracks.count}} tracks returned</div>
-          <div class="list-block media-list">
-            <ul>
-              {{#each tracks.items}}
-              <li>
-                <a href="#" class="item-link item-content"
-                  data-item="{{@index}}"
-                  data-context="{{stringify this}}"
-                  data-template="details"
-                >
-                  <div class="item-media">
-                    <img width="80" src="{{this.album.images[0].url}}">
-                  </div>
-                  <div class="item-inner">
-                    <div class="item-title-row">
-                      <div class="item-title">{{this.name}}</div>
-                      <div class="item-after">{{durationFromMs this.duration_ms}}</div>
-                    </div>
-                    <div class="item-subtitle">{{this.artists[0].name}}</div>
-                    <div class="item-text">{{this.album.name}}</div>
-                  </div>
-                </a>
-              </li>
-              {{/each}}
-            </ul>
-          </div>
-        </div>
-    </div>
-  </script>
 
-  <script type="text/template7" id="details">
-    <!-- Dynamic navbar for iOS theme -->
-    {{#if @global.ios}}
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left sliding">
-          <a href="#" class="back link">
-            <i class="icon icon-back"></i>
-              <span>Results</span>
-          </a>
-        </div>
-        <div class="center sliding">Track details</div>
-        <div class="right">
-          <a href="#" class="link star">
-            <i class="fa fa-star-o"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    {{/if}}
 
-    <div class="page" data-page="details">
-        <!-- Fixed navbar for Material theme -->
-        {{#if @global.material}}
-        <div class="navbar">
-            <div class="navbar-inner">
-              <div class="left">
-                <a href="#" class="back link"><i class="icon icon-back"></i></a>
-              </div>
-              <div class="center">Track details</div>
-              <div class="right">
-                <a href="#" class="link star">
-                  <i class="fa fa-star-o"></i>
-                </a>
-              </div>
-            </div>
-        </div>
-        {{/if}}
+ <img id="img_carregando" style="position:fixed; top:0%; left:0%; border: 7px solid black; position:fixed;   width:100%; height:100%; opacity: 0.8; filter: alpha(opacity=80); visibility:hidden; " src="fotos/carregando.gif" />	
+			
+</div>		
 
-        <div class="page-content">
-          <div class="card">
-            <div class="card-header no-border no-padding">
-              <img src="{{this.album.images[0].url}}" width="100%" />
-            </div>
-            <div class="card-content">
-              <div class="card-content-inner">
-                <div class="track-name">{{this.name}}</div>
-                <div class="artists-name">by {{this.artists[0].name}}</div>
-                <div class="album-title">{{this.album.name}}</div>
-              </div>
-            </div>
-            <div class="card-content">
-              <div class="card-content-inner preview">
-                <div class="playback-controls">
-                  <a class="play-button play displayed" href="#">
-                    <div class="arrow-right play"></div>
-                  </a>
-                  <a class="pending-button pending" href="#">
-                    <span class="preloader pending"></span>
-                  </a>
-                  <a class="stop-button stop" href="#">
-                    <div class="square stop"></div>
-                  </a>
-                  <div class="duration">
-                    <span data-progress="0" class="progressbar"></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer">
-              <div>Track duration</div>
-              <div>{{durationFromMs this.duration_ms}}</div>
-            </div>
-          </div>
-        </div>
-    </div>
-  </script>
+<script>
+			var windowHeight = screen.height;
+			document.getElementById('tela').style.height = windowHeight + "px";
+			//alert(windowHeight);
+</script>	
 
-  <script type="text/template7" id="favorites">
-    <!-- Dynamic navbar for iOS theme -->
-    {{#if @global.ios}}
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="left">
-          <a href="#" class="link icon-only open-panel"><i class="fa fa-bars"></i></a>
-        </div>
-        <div class="center sliding">Favorites</div>
-      </div>
-    </div>
-    {{/if}}
-
-    <div class="page" data-page="favorites">
-        <!-- Fixed navbar for Material theme -->
-        {{#if @global.material}}
-          <div class="navbar">
-            <div class="navbar-inner">
-              <div class="left">
-                <a href="#" class="link icon-only open-panel"><i class="fa fa-bars"></i></a>
-              </div>
-            <div class="center sliding">Favorites</div>
-          </div>
-        </div>
-        {{/if}}
-
-        <div class="page-content">
-          {{#if tracks}}
-          <div class="content-block-title">Tracks</div>
-          <div class="list-block media-list">
-            <ul>
-              {{#each tracks}}
-              <li>
-                <a href="#" class="item-link item-content"
-                  data-item="{{@index}}"
-                  data-context="{{stringify this}}"
-                  data-template="details"
-                >
-                  <div class="item-media">
-                    <img width="80" src="{{this.album.images[0].url}}">
-                  </div>
-                  <div class="item-inner">
-                    <div class="item-title-row">
-                      <div class="item-title">{{this.name}}</div>
-                      <div class="item-after">{{durationFromMs this.duration_ms}}</div>
-                    </div>
-                    <div class="item-subtitle">{{this.artists[0].name}}</div>
-                    <div class="item-text">{{this.album.name}}</div>
-                  </div>
-                </a>
-              </li>
-              {{/each}}
-            </ul>
-          </div>
-          {{else}}
-          <div class="content-block">
-            <p>You haven't favorited any tracks! Use the search function and add some to favorites.</p>
-          </div>
-          {{/if}}
-        </div>
-    </div>
-  </script>
-
-  <script type="text/javascript" src="cordova.js"></script>
-  <script type="text/javascript" src="lib/MSOpenTech/winstore-jscompat.js"></script>
-  <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
-  <script type="text/javascript" src="js/init-styles.js"></script>
-  <script type="text/javascript" src="js/my-app.js"></script>
 </body>
 
+
+		<!-- repete para garantir o tamanho certo da tela-->
+		<script>
+			//var windowHeight = window.innerHeight;
+			//document.getElementsByTagName('body')[0].style.height = windowHeight + "px";
+			//alert(windowHeight);
+		</script>	
+	
 </html>
