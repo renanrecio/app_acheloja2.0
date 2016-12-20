@@ -333,15 +333,27 @@ function setupPush() {
      var link = data.additionalData.link;
 	 
 	 if (link == 'home') {
-       window.location.href = "home.html";	 
-     } else {
-       navigator.notification.alert(
-           data.message,         // message
-           null,                 // callback
-           data.title,           // title
-           'Ok'                  // buttonName
-       );         
-     }
+	 
+		window.location.href = "home.html";	 
+		
+     }else{
+		
+		if (link == 'meus_cupons') {
+		
+			window.location.href = "meus_cupons.html";	 
+		
+		}else{
+		
+		   navigator.notification.alert(
+			   data.message,         // message
+			   null,                 // callback
+			   data.title,           // title
+			   'Ok'                  // buttonName
+		   );      
+		   
+		}//fim do else
+		
+     }//fim do else
 	 
 	 /*
      if (link) {
