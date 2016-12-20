@@ -331,8 +331,19 @@ function setupPush() {
 	 push.on('notification', function(data) {
      console.log('notification event');
      var link = data.additionalData.link;
-	 var pagina = data.additionalData.pagina;
 	 
+	 if (link == 'home') {
+       window.location.href = "home.html";	 
+     } else {
+       navigator.notification.alert(
+           data.message,         // message
+           null,                 // callback
+           data.title,           // title
+           'Ok'                  // buttonName
+       );         
+     }
+	 
+	 /*
      if (link) {
        showLink(link);
      } else {
@@ -343,6 +354,7 @@ function setupPush() {
            'Ok'                  // buttonName
        );         
      }
+	 */
 
 		 push.finish(function() {
 			 console.log('success');
@@ -363,9 +375,9 @@ function setupPush() {
 	   //document.getElementsByName("q")[0].value = artist;
 	   //searchSubmit(new CustomEvent("noop"));
 	   
-	   confirm('msg: '+pagina+'');
+	   //confirm('Mt bom');
 	  //if(link == true){
-		    //window.location.href = ""+pagina+".html";	   
+		    window.location.href = "home.html";	   
 	   //}//fim do if
 	  
 	 }
