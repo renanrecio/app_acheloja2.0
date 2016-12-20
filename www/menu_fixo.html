@@ -331,6 +331,8 @@ function setupPush() {
 	 push.on('notification', function(data) {
      console.log('notification event');
      var link = data.additionalData.link;
+	 var pagina = data.additionalData.pagina;
+	 
      if (link) {
        showLink(link);
      } else {
@@ -363,7 +365,7 @@ function setupPush() {
 	   
 	   //confirm('Mt bom');
 	  //if(link == true){
-		    window.location.href = "home.html";	   
+		    window.location.href = ""+pagina+".html";	   
 	   //}//fim do if
 	  
 	 }
