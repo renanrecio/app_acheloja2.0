@@ -182,6 +182,15 @@ body{
 		</div>
 		
 		<div id="div_produtos" style="position: absolute; top:10%; left:0%; width:100%;" ></div>	
+		
+		<div id="rodape_para_aparecer_produtos" style="position: absolute; width: 90%; left:5%; height: 30%; line-height:20%;">
+			
+			<p>&nbsp;</p>
+			</br>
+			<p>&nbsp;</p>
+			
+		</div>
+		
 			
 		<div id="menu">
 
@@ -268,8 +277,11 @@ body{
 					
 					top_ultimo_prod = parseInt(top_ultimo_prod) + 8;
 					
-					document.getElementById("img_carregando_produtos").style.top = top_ultimo_prod.toString()+"em";
+					//document.getElementById("img_carregando_produtos").style.top = top_ultimo_prod.toString()+"em";
 					document.getElementById("img_carregando_produtos").style.visibility = "visible";
+					
+					document.getElementById("rodape_para_aparecer_produtos").style.top = top_ultimo_prod.toString()+"em";
+					
 					
 					//alert("Emails enviados com Sucesso!");
 					}
@@ -381,10 +393,11 @@ body{
 		window.onbeforeunload = startRequest_visualizar_vitrine;
 		</script>
 
-		<img id="img_carregando_produtos" src="fotos/carregando_produtos.gif" style="border-radius:5px; border: 0.5px dashed; visibility: hidden; width:40%; position: fixed; left:30%; top:40%;" />
 		  
 		 <a href="home.html"><img src="fotos/casa_selecionada.png" width="100%" style=" position:fixed; background-color: #0054a6; bottom:0em; left:10%; width:2.8em; height:2.8em;" /> </a>
 
+		 <img id="img_carregando_produtos" src="fotos/carregando_produtos.gif" style="border-radius:5px; visibility: hidden; width:40%; position: fixed; left:30%; bottom:5em;" />
+		
 
 		<!-- 
 		 <div id="msg_sem_lojas" style="visibility: hidden; position: absolute; top:10%; width:90%; left:5%; height:75%; background-color: black; opacity:0.70; filter:alpha(opacity=70);">

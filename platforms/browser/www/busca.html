@@ -167,6 +167,14 @@ function fechar(){
 		
 		
 </div>	
+
+<div id="rodape_para_aparecer_produtos" style="position: absolute; width: 90%; left:5%; height: 30%; line-height:20%;">
+			
+	<p>&nbsp;</p>
+	</br>
+	<p>&nbsp;</p>
+	
+</div>
 	
 <!--	
 <div id="map-canvas" onclick="aumentar_mapa(this); "  style=" position:absolute; top: 1em; left:0%; width: 100%; height: 10em;" ></div>
@@ -284,8 +292,11 @@ function fechar(){
 			
 			top_ultimo_prod = parseInt(top_ultimo_prod) + 8;
 			
-			document.getElementById("img_carregando_produtos").style.top = top_ultimo_prod.toString()+"em";
+			//document.getElementById("img_carregando_produtos").style.top = top_ultimo_prod.toString()+"em";
 			document.getElementById("img_carregando_produtos").style.visibility = "visible";
+				
+			document.getElementById("rodape_para_aparecer_produtos").style.top = top_ultimo_prod.toString()+"em";
+					
 			
 			//alert("Emails enviados com Sucesso!");
 			}
@@ -434,11 +445,6 @@ $(function () {
 </script> 
  
  
-
- 
- 
-<img id="img_carregando_produtos" src="fotos/carregando_produtos.gif" style="border-radius:5px; border: 0.5px dashed; visibility: hidden; width:20%; position: absolute; left:40%;" />
-  
 <!--	   
 <a href="#div_filtro"><img onclick="abrir_filtro()"  src="fotos/filtro.png" style="position: fixed; top:0%; left:43%; width:1em;" /><span  onclick="abrir_filtro()" style="position: fixed; top:0%; left:48%; width:10%; cursor: pointer; font-size: 1em; color: white;" > Filtro </span></a>
 	-->
@@ -464,7 +470,9 @@ $(function () {
 
 <a href="busca.html"><img src="fotos/lupa_selecionada.png" width="100%" style=" position:fixed; background-color: #0054a6; bottom:0em; left:32%; width:2.8em; height:2.8em;" /> </a>
 
-
+ 
+<img id="img_carregando_produtos" src="fotos/carregando_produtos.gif" style="border-radius:5px; visibility: hidden; width:40%; position: fixed; left:30%; bottom:5em;" />
+		
 
  <!-- Filtros -->
 <script>
