@@ -2,16 +2,17 @@
 <html>
 <head>
 
-<meta http-equiv="X-UA-Compatible" content="IE=10" />
-
-<meta name="google-site-verification" content="Wiq9h-MVFjBO3hYHciruU4k0Wk08XVFGfFgvRQi_YPM" />
-
-<meta name="Keywords" content="publicar, publicar do brasil, listaonline, lista online, guia, guia de lojas, empresa, acheloja.com, lojas, loja, lista, busca de lojas, busca de produtos, guia local, busca local, consulta serviços produtos, lista telefonica, telefones, endereços." />
-
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
-
-<meta name="description" content="Você escolhe o que quer comprar e onde, e o acheloja.com acha o estabelecimento mais próximo de você!">
+ <!--
+    Customize this policy to fit your own app's needs. For more guidance, see:
+      https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+    Some notes:
+      * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+      * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+      * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+    -->
+  <!-- Removing 'unsafe-eval'. If needed, I will figure out a way around it -->
+ 
 
 <link rel="stylesheet" type="text/css" href="Folha_Estilo.css" media="screen" />
 
@@ -81,7 +82,6 @@ startRequest_login();
 </script>
 
 
-
 <!-- Verificar se é o primeiro loggin-->
 <script>
 if(typeof localStorage.nome_usuario === "undefined"){
@@ -98,7 +98,7 @@ localStorage.id_usuario = '';
 
 </script>
 
-
+	
 <!-- Verificar se já está logado-->
 <script>
 
@@ -121,9 +121,17 @@ if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefine
 </script>	
 
 
+
 </head>
     <!-- <body style="position: absolute; width:96%; height:auto; top:0%; left:0%;">-->
-	<body style="position: absolute; height:100%; width:96%; top:0%; left:0%;">
+	<body class="theme-green">
+ 
+  <!-- Views -->
+  <div class="views">
+    <!-- Your main view, should have "view-main" class -->
+    <div class="view view-main">
+
+			  
 	<div id="tela" style="position:absolute; width:100%; height:auto; top:0em; left:0%;">
 		
 		<img style="position:absolute; width:80%; top:8%; left:10%;" src="fotos/logo2.png" />
@@ -160,6 +168,9 @@ if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefine
 		<a href="cadastrar.html" style="text-decoration:none;"><span style="position:absolute; top:77%; width:80%; left:10%; color:#0070a1; font-weight: bolder; font-size:1.1em;"> Não possui Cadastro? </br>Clique aqui para se Cadastrar...</span></a>
 		
 		-->
+
+		</div>
+  </div>
 
 <!-- Validação do forumlário -->
 <script type="text/javascript">
@@ -233,6 +244,16 @@ if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefine
 						
 						//alert(str);
 						
+						if( (str.substring((pos_id+3), pos_nome)) != (localStorage.id_usuario) ){ 
+						
+							localStorage.mudou_de_usuario = "1";
+							
+						}else{
+							
+							localStorage.mudou_de_usuario = "0";
+						
+						}
+						
 						localStorage.id_usuario = str.substring((pos_id+3), pos_nome);
 						localStorage.nome_usuario = str.substring((pos_nome+5), pos_foto);
 						localStorage.foto_usuario = str.substring((pos_foto+5), pos_email);
@@ -247,12 +268,14 @@ if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefine
 				
 				document.getElementById("img_carregando").style.visibility = "hidden";
 				
+			}else{
+				alert('Sem internet');
 			}
 			}
 			}
 			
 		
-			
+		
 			
 			
 </script>    		
@@ -270,6 +293,7 @@ if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefine
 			//alert(windowHeight);
 </script>	
 
+	
 </body>
 
 
