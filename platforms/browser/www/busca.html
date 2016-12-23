@@ -139,7 +139,7 @@ function chamar_vitrine(nick_site){
 
 
 </head>
-     <body onload="setDefault()"  >
+     <body onload="setDefault();"  >
 	 
 		
 
@@ -369,7 +369,10 @@ function fechar(){
 				var pos_num = str2.indexOf("#num");
 				
 				
-				document.getElementById("categorias_produtos").innerHTML = document.getElementById("categorias_produtos").innerHTML + str2.substring(0, pos_num); 
+				//document.getElementById("categorias_produtos").innerHTML = document.getElementById("categorias_produtos").innerHTML + str2.substring(0, pos_num); 
+				
+				document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
+				
 				
 				num_categorias = str2.substring((pos_num+4), str2.length);
 				
@@ -576,7 +579,7 @@ function desaparecer_busca_produto(){
 <div id="categorias_produtos" ></div>
 </div>		
 
--->
+
 
 <div id="busca_produto" style="visibility: hidden;">
 <img src="" width="100%" style="position:fixed; background-color: #0054a6; top:3em; left:0%; height: 15em; opacity:0.90; filter:alpha(opacity=90);" /> 
@@ -589,14 +592,11 @@ function desaparecer_busca_produto(){
 		<p style="position: fixed; top:7.5em; left: 10%; color:white; font-weight: bold; font-size:0.9em;" >Categorias:</p>
 		
 		<div id="categorias_produtos" style="position:fixed; left:10%; top:8.5em; height:60%; width:100%;" ></div>
-		
-		<!--
-		<input onclick="filtrar()" type="submit" style="position: fixed; top:15.5em; height:2em; width:20%; left: 40%; font-weight: bold; color:white; background-color: #0054a6; font-size:1em; cursor: pointer; border-radius: 5px;" Value="Achar"/>
-		-->
+	
 </div>
+ -->
  
- 
- 
+
  
  <!--FIM dos Filtros -->
  
@@ -627,22 +627,24 @@ function desaparecer_busca_produto(){
 	
 	}
 		
-	//Buscar produtos	
-	startRequest_mais_produtos();
 	
-	
-	//Carregar categorias
-	startRequest_categorias();
-	
-
 
 	
 </script> 
-  
-  
-  
-  
- 
+
+<div id="categorias_produtos" ></div>
+	
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    //alert("Ready!");
+	startRequest_categorias();
+	startRequest_mais_produtos();
+}, false);
+
+</script>
+
+
 </body>
 	
 
