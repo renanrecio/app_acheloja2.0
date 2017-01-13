@@ -44,7 +44,7 @@
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_meus_cupons_app.php", true);
+			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_meus_cupons_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_usuario="+localStorage.id_usuario);
@@ -58,7 +58,7 @@
 			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
 			//document.getElementById("verifica_login").value = xmlHttp.responseText;
 			
-				str = xmlHttp.responseText;
+				str = xmlHttp.responseText.trim();
 				
 				
 				document.getElementById("div_meus_cupons").innerHTML = document.getElementById("div_meus_cupons").innerHTML + str;
@@ -151,7 +151,7 @@
 			createXMLHttpRequest_cancelar_cupom();
 			xmlHttp.onreadystatechange = handleStateChange_cancelar_cupom;
 			
-			xmlHttp.open("GET", "http://54.207.38.125/AcheLoja3.0/cancelar_cupom_ajax.php?id="+id_cupom+"&id_u="+id_usuario+"&id_a="+id_anuncio+"", true);
+			xmlHttp.open("GET", "http://52.67.44.156/cancelar_cupom_ajax.php?id="+id_cupom+"&id_u="+id_usuario+"&id_a="+id_anuncio+"", true);
 			
 			
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -169,7 +169,7 @@
 			if(xmlHttp.status == 200) {
 				
 				
-				if(xmlHttp.responseText == "ok"){
+				if(xmlHttp.responseText.trim() == "ok"){
 					
 					location.reload();
 					
@@ -263,10 +263,12 @@
 				
 			}		
 			
-			xmlHttp.open("GET", "http://54.207.38.125/AcheLoja3.0/avaliar_cupom_ajax.php?id="+id_cupom+"&id_u="+id_usuario+"&id_a="+id_anuncio+"&nota="+nota+"&comentario="+comentario+"", true);
+			xmlHttp.open("GET", "http://52.67.44.156/avaliar_cupom_ajax.php?id="+id_cupom+"&id_u="+id_usuario+"&id_a="+id_anuncio+"&nota="+nota+"&comentario="+comentario+"", true);
 			
 			
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			document.getElementById("img_carregando").style.visibility = "visible";
 			
 			xmlHttp.send();
 			
@@ -281,14 +283,16 @@
 			if(xmlHttp.status == 200) {
 				
 				
-				if(xmlHttp.responseText == "ok"){
+				if(xmlHttp.responseText.trim() == "ok"){
 					
 					alert('Obrigado pela avaliação');
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					window.location="meus_cupons.html";
 					
 				}else{
 					
-					alert("Ocorreu algum problema!")
+					alert("Ocorreu algum problema!");
+					document.getElementById("img_carregando").style.visibility = "hidden";
 					
 				}
 				
