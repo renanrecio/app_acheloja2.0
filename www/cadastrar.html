@@ -60,10 +60,10 @@ var xmlHttp;
 			function handleStateChange() {
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
-			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
-			//document.getElementById("verifica_login").value = xmlHttp.responseText;
+			//document.getElementById("resultado").innerHTML = xmlHttp.responseText.trim();
+			//document.getElementById("verifica_login").value = xmlHttp.responseText.trim();
 			
-				var str = xmlHttp.responseText;
+				var str = xmlHttp.responseText.trim();
 				
 				str = str.trim();
 				
@@ -240,7 +240,7 @@ var xmlHttp;
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
 			
-				if(xmlHttp.responseText == "1"){
+				if(xmlHttp.responseText.trim() == "1"){
 					
 					//document.getElementById("email_aviso").innerHTML = "<?php echo $traducao['email_ja_cadastrado']; ?>";
 					alert("Email já cadastrado, verifique se já possui cadastro no AcheLoja!")

@@ -57,10 +57,10 @@
 			function handleStateChange() {
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
-			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
-			//document.getElementById("verifica_login").value = xmlHttp.responseText;
+			//document.getElementById("resultado").innerHTML = xmlHttp.responseText.trim();
+			//document.getElementById("verifica_login").value = xmlHttp.responseText.trim();
 			
-				str = xmlHttp.responseText;
+				str = xmlHttp.responseText.trim();
 				
 				
 				document.getElementById("div_lojas").innerHTML = document.getElementById("div_lojas").innerHTML + str;

@@ -238,7 +238,7 @@ function submeter(){
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
 				
-				obj = JSON.parse(xmlHttp.responseText);
+				obj = JSON.parse(xmlHttp.responseText.trim());
 				
 				if(obj.status == 1){
 					
@@ -418,7 +418,7 @@ function submeter(){
 			if(xmlHttp.status == 200) {
 				
 				
-				if(xmlHttp.responseText == "1"){
+				if(xmlHttp.responseText.trim() == "1"){
 					
 					//document.getElementById("cpf_aviso").innerHTML = "<?php echo $traducao['CPF_ja_cadastrado'];?>";
 					alert("CPF já cadastrado, verifique se já tem conta no AcheLoja!")
@@ -616,8 +616,8 @@ function submeter(){
 			if(xmlHttp.status == 200) {
 				
 				//alert("voltou");
-				document.getElementById("foto_do_perfil").src = xmlHttp.responseText;
-				localStorage.foto_usuario = xmlHttp.responseText;
+				document.getElementById("foto_do_perfil").src = xmlHttp.responseText.trim();
+				localStorage.foto_usuario = xmlHttp.responseText.trim();
 				document.getElementById("foto_perfil_menu").src = localStorage.foto_usuario;
 				
 			}
@@ -671,7 +671,7 @@ function submeter(){
 			if(xmlHttp.status == 200) {
 				
 				//alert("voltou");
-				document.getElementById("foto_da_capa").style.backgroundImage = "url('" + xmlHttp.responseText + "')";
+				document.getElementById("foto_da_capa").style.backgroundImage = "url('" + xmlHttp.responseText.trim() + "')";
 				
 			}
 			}
@@ -712,10 +712,10 @@ function submeter(){
 			function handleStateChange() {
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
-			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
-			//document.getElementById("verifica_login").value = xmlHttp.responseText;
+			//document.getElementById("resultado").innerHTML = xmlHttp.responseText.trim();
+			//document.getElementById("verifica_login").value = xmlHttp.responseText.trim();
 			
-				str = xmlHttp.responseText;
+				str = xmlHttp.responseText.trim();
 				
 				
 				document.getElementById("div_pessoal").innerHTML = document.getElementById("div_pessoal").innerHTML + str;
@@ -764,7 +764,7 @@ function submeter(){
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
 			
-				if(xmlHttp.responseText == "1"){
+				if(xmlHttp.responseText.trim() == "1"){
 					
 					//document.getElementById("email_aviso").innerHTML = "<?php echo $traducao['email_ja_cadastrado']; ?>";
 					alert("Email já cadastrado, verifique se já possui cadastro no AcheLoja!")
@@ -817,9 +817,9 @@ function submeter(){
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
 			
-			var str = xmlHttp.responseText;
+			var str = xmlHttp.responseText.trim();
 			
-				if(xmlHttp.responseText != ""){
+				if(xmlHttp.responseText.trim() != ""){
 				
 						var pos_nome = str.indexOf("#nome");
 						var pos_email = str.indexOf("#email"); 

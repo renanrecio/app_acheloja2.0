@@ -205,10 +205,10 @@ if( (nome_usuario_guardado != '') && (typeof nome_usuario_guardado !== "undefine
 			function handleStateChange_login() {
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
-			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
-			//document.getElementById("verifica_login").value = xmlHttp.responseText;
+			//document.getElementById("resultado").innerHTML = xmlHttp.responseText.trim();
+			//document.getElementById("verifica_login").value = xmlHttp.responseText.trim();
 			
-				var str = xmlHttp.responseText;
+				var str = xmlHttp.responseText.trim();
 				
 				str = str.trim();
 				

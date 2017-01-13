@@ -290,10 +290,10 @@ body{
 					function handleStateChange() {
 					if(xmlHttp.readyState == 4) {
 					if(xmlHttp.status == 200) {
-					//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
-					//document.getElementById("verifica_login").value = xmlHttp.responseText;
+					//document.getElementById("resultado").innerHTML = xmlHttp.responseText.trim();
+					//document.getElementById("verifica_login").value = xmlHttp.responseText.trim();
 					
-						var str = xmlHttp.responseText;
+						var str = xmlHttp.responseText.trim();
 						
 						var pos_cg = str.indexOf("#cg");
 						var pos_cg_p1 = str.indexOf("#cgp1");

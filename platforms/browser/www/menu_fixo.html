@@ -111,7 +111,7 @@ document.getElementById("nome_usuario").innerHTML = nome_menu;
 					if(xmlHttp2.readyState == 4) {
 					if(xmlHttp2.status == 200) {
 					
-						var str = xmlHttp2.responseText;
+						var str = xmlHttp2.responseText.trim();
 				
 						var marcador_novidades = str.indexOf("#n");
 						
@@ -405,7 +405,7 @@ function setupPush() {
     </script>
 
 
-<div id="img_carregando" style=" position: fixed; visibility: hidden; top:0em; height:100%; width:100%; opacity: 0.8; filter: alpha(opacity=80); background-color: white;">
+<div id="img_carregando" style=" position: fixed; visibility: hidden; top:0em; left:-1%; height:100%; width:102%; opacity: 0.8; filter: alpha(opacity=80); background-color: white;">
 	 <center>
 		<img  src="fotos/carregando_produtos.gif" style="border-radius:25px; position: relative; top:17em;  width:70%;" />
 	 </center>

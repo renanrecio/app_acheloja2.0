@@ -299,10 +299,10 @@ function fechar(){
 			function handleStateChange() {
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
-			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
-			//document.getElementById("verifica_login").value = xmlHttp.responseText;
+			//document.getElementById("resultado").innerHTML = xmlHttp.responseText.trim();
+			//document.getElementById("verifica_login").value = xmlHttp.responseText.trim();
 			
-				var str = xmlHttp.responseText;
+				var str = xmlHttp.responseText.trim();
 				
 				var pos_cg = str.indexOf("#cg");
 				var pos_cg_p1 = str.indexOf("#cgp1");
@@ -359,10 +359,10 @@ function fechar(){
 			function handleStateChange_categorias() {
 			if(xmlHttp3.readyState == 4) {
 			if(xmlHttp3.status == 200) {
-			//document.getElementById("resultado").innerHTML = xmlHttp2.responseText;
-			//document.getElementById("verifica_login").value = xmlHttp2.responseText;
+			//document.getElementById("resultado").innerHTML = xmlHttp2.responseText.trim();
+			//document.getElementById("verifica_login").value = xmlHttp2.responseText.trim();
 			
-				var str2 = xmlHttp3.responseText;
+				var str2 = xmlHttp3.responseText.trim();
 				
 				var str2  = str2.trim(); 
 				

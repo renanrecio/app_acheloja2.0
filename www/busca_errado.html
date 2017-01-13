@@ -264,10 +264,10 @@ function fechar(){
 			function handleStateChange_mais_produtos() {
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
-			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
-			//document.getElementById("verifica_login").value = xmlHttp.responseText;
+			//document.getElementById("resultado").innerHTML = xmlHttp.responseText.trim();
+			//document.getElementById("verifica_login").value = xmlHttp.responseText.trim();
 			
-				str = xmlHttp.responseText;
+				str = xmlHttp.responseText.trim();
 				
 				var pos_cg = str.indexOf("#cg");
 				var pos_cg_p1 = str.indexOf("#cgp1");
@@ -463,10 +463,10 @@ function desaparecer_busca_produto(){
 			function handleStateChange_categorias() {
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
-			//document.getElementById("resultado").innerHTML = xmlHttp.responseText;
-			//document.getElementById("verifica_login").value = xmlHttp.responseText;
+			//document.getElementById("resultado").innerHTML = xmlHttp.responseText.trim();
+			//document.getElementById("verifica_login").value = xmlHttp.responseText.trim();
 			
-				str = xmlHttp.responseText;
+				str = xmlHttp.responseText.trim();
 				
 				
 				document.getElementById("categorias_produtos").innerHTML = document.getElementById("categorias_produtos").innerHTML + str;
