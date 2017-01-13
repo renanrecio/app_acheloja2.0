@@ -241,7 +241,7 @@ function fechar(){
 			
 			//alert("cep:"+cep_bairro+" - cidade:"+ localStorage.cidade + "");
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_lojas_app.php", true);
+			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_lojas_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&categorias= and ( 0 or categoria like 'Roupas'  or categoria like 'Calçados'  or categoria like 'Acessórios'  or categoria like 'Info e Eletro'  or categoria like 'Estética e Saúde'  or categoria like 'Outros'  )&cep_bairro=" + localStorage.cep_bairro + "&cidade=" + localStorage.cidade + "&tem_loja_na_cidade=1");
@@ -452,7 +452,7 @@ function desaparecer_busca_produto(){
 			xmlHttp.onreadystatechange = handleStateChange_categorias;
 			
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_categorias_app.php", true);
+			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_categorias_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send();

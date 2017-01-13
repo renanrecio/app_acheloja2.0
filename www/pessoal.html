@@ -400,7 +400,7 @@ function submeter(){
 			createXMLHttpRequest3();
 			xmlHttp.onreadystatechange = handleStateChange3;
 			
-			xmlHttp.open("GET", "http://54.207.38.125/AcheLoja3.0/validar/cpf.php?cpf="+document.getElementById("cpf").value, true);
+			xmlHttp.open("GET", "http://52.67.44.156/validar/cpf.php?cpf="+document.getElementById("cpf").value, true);
 			
 			
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -598,11 +598,11 @@ function submeter(){
 
 			
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/ajax_foto_perfil.php", true);
+			xmlHttp.open("POST", "http://52.67.44.156/ajax_foto_perfil.php", true);
 			
 			xmlHttp.send(formData);
 			
-			document.getElementById("foto_do_perfil").src = "http://54.207.38.125/AcheLoja3.0/fotos/carregando.gif";
+			document.getElementById("foto_do_perfil").src = "http://52.67.44.156/fotos/carregando.gif";
 			
 			
 			
@@ -654,11 +654,11 @@ function submeter(){
 
 			
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/ajax_capa_usuario.php", true);
+			xmlHttp.open("POST", "http://52.67.44.156/ajax_capa_usuario.php", true);
 			
 			xmlHttp.send(formData);
 			
-			document.getElementById("foto_da_capa").style.backgroundImage = "url('http://54.207.38.125/AcheLoja3.0/fotos/carregando.gif')";
+			document.getElementById("foto_da_capa").style.backgroundImage = "url('http://52.67.44.156/fotos/carregando.gif')";
 			
 			
 			
@@ -701,7 +701,7 @@ function submeter(){
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_pessoal_app.php", true);
+			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_pessoal_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_usuario="+localStorage.id_usuario+"&atualizar=0");
@@ -748,7 +748,7 @@ function submeter(){
 			createXMLHttpRequest4();
 			xmlHttp.onreadystatechange = handleStateChange4;
 			
-			xmlHttp.open("GET", "http://54.207.38.125/AcheLoja3.0/validar/editar_email.php?email="+document.getElementById("email").value+"&email_antigo="+localStorage.email_usuario, true);
+			xmlHttp.open("GET", "http://52.67.44.156/validar/editar_email.php?email="+document.getElementById("email").value+"&email_antigo="+localStorage.email_usuario, true);
 			
 			
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -801,7 +801,7 @@ function submeter(){
 			createXMLHttpRequest_update();
 			xmlHttp.onreadystatechange = handleStateChange_update;
 			
-			xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/m/ajax_pessoal_app.php", true);
+			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_pessoal_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			
@@ -918,7 +918,7 @@ function alterar_senha(){
  
  <a href="pessoal.html" style="text-decoration: none;"><div style="width: 100%;" ><img id ="foto_perfil_menu" src="fotos/entrar_.png" style="position: fixed; left: 3%; top:0.1em; width:2.8em; height:2.8em;"/> <span id="nome_usuario" style="font-family: Montserrat;  position: fixed; font-size: 1.2em; left: 3.3em; top:0.75em; color: white; font-weight: bold; "></span></div></a>
 
- <div onclick="sair()" style="position: fixed;  top:0.1em; right:30%;"><img src="http://54.207.38.125/AcheLoja3.0/fotos/sair.png" style="position: absolute; top:0.45em; left:0%; width:2em; height:2em; "/> <span style="font-family: Montserrat;  position: absolute; top:0.6em; left:1.8em; font-size: 1.3em; font-weight:bold; color: white;">SAIR</span></div>
+ <div onclick="sair()" style="position: fixed;  top:0.1em; right:30%;"><img src="http://52.67.44.156/fotos/sair.png" style="position: absolute; top:0.45em; left:0%; width:2em; height:2em; "/> <span style="font-family: Montserrat;  position: absolute; top:0.6em; left:1.8em; font-size: 1.3em; font-weight:bold; color: white;">SAIR</span></div>
 	
  
  <!--

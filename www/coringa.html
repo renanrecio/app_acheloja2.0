@@ -57,7 +57,7 @@
 					createXMLHttpRequest_visualizacao_produtos();
 					xmlHttp.onreadystatechange = handleStateChange_visualizacao_produtos;
 					
-					xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/cliques_ajax.php", true);
+					xmlHttp.open("POST", "http://52.67.44.156/validar/cliques_ajax.php", true);
 					xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp.send("id="+id+"&tipo=visualizacao_produto");
@@ -96,7 +96,7 @@
 		
 		<div id="msg_sem_lojas"	style="position: absolute; top:0%; left:0%; width:100%; height:120%; visibility: hidden;" >
 		
-			<img src="http://54.207.38.125/AcheLoja3.0/fotos/passo_a_passo_mobile.png"  style=" position:absolute; top:4em; background-color: #0054a6; width:80%; left:10%;" /> 
+			<img src="http://52.67.44.156/fotos/passo_a_passo_mobile.png"  style=" position:absolute; top:4em; background-color: #0054a6; width:80%; left:10%;" /> 
 				
 		</div>
 		
@@ -269,7 +269,7 @@
 							createXMLHttpRequest_visualizar_vitrine();
 							xmlHttp.onreadystatechange = handleStateChange_visualizar_vitrine;
 							
-							xmlHttp.open("POST", "http://54.207.38.125/AcheLoja3.0/validar/atualizar_visualizacao_minhas_vitrine.php", true);
+							xmlHttp.open("POST", "http://52.67.44.156/validar/atualizar_visualizacao_minhas_vitrine.php", true);
 							xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 							
 							xmlHttp.send("id_usuario="+localStorage.id_usuario+"");
