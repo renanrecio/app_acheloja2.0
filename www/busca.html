@@ -103,19 +103,6 @@ function setDefault(){
 	 }//fim do iff
 	  
 }
-
-
-function setDefault2(){
-			  
-				document.getElementById("contador_geral").value =  0;
-				document.getElementById("contador_geral_prod1").value =  0;
-				document.getElementById("contador_geral_prod2").value = 0;
-				document.getElementById("contador").value = 1;
-				document.getElementById("top").value = 0;
-				document.getElementById("left").value = 2;
-				  
-			
-}
   
 </script>
 
@@ -156,8 +143,7 @@ function chamar_vitrine(nick_site){
 
 
 </head>
-     <!--<body onload="setDefault();"  > -->
-	  <body onload="setDefault2();">
+     <body onload="setDefault();"  >
 	 
 		
 
@@ -376,7 +362,6 @@ function fechar(){
 					
 						document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
 				
-						localStorage.versao_filtro = versao_filtro;
 					
 					}//fim do else
 				
