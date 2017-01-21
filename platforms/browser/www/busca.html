@@ -213,6 +213,7 @@ function fechar(){
 			var categorias_selecionada_agora = 0;
 						
 			var num_categorias=0;
+			var versao_filtro = "";
 			
 			function createXMLHttpRequest() {
 			if (window.ActiveXObject) {
@@ -226,60 +227,19 @@ function fechar(){
 			createXMLHttpRequest();
 			xmlHttp.onreadystatechange = handleStateChange;
 			
-			/*	
-			if( (typeof localStorage.cep_bairro !== "undefined") && (localStorage.cep_bairro != '') ){
-	
-				cep_bairro = localStorage.cep_bairro;
-				
-			}else{
-			
-				cep_bairro = '';
-			
-			}
 			
 			
-			if( (typeof localStorage.cidade !== "undefined") && (localStorage.cidade != '') ){
-	
-				cidade = localStorage.cidade;
-				
-			}else{
 			
-				cidade = 'São Paulo';
-			
-			}
-			
-			//Verificar quais categorias estão selecionada
-		
-			categorias = "and ( 0 ";
-			
-			for (i = 0; i < num_categorias; i++) { 
-			
-				if ( (document.getElementById('categoria'+i).checked) == true ){
-				
-					categorias = categorias + " or categoria like '"+ document.getElementById('categoria'+i).value +"' ";
-					categorias_selecionada_agora++;
-					
-				}//fim do if
-			}//fim do for
-			
-			categorias = categorias + " )";
-			
-			if(categorias_selecionada_agora == 0){
-			
-				categorias = "";
-				
-			} 
-			*/
 			
 			//alert(categorias);
 			
 			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_lojas_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
-			xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&filtro="+localStorage.filtro+"&tem_loja_na_cidade=1");
+			xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&tem_loja_na_cidade=1&filtro="+localStorage.filtro);
 			
 			
-			//xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&categorias="+categorias+"&cep_bairro=" + cep_bairro + "&cidade=" + cidade + "&tem_loja_na_cidade=1");
+			//xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&categorias="+categorias+"&cep_bairro=" + cep_bairro + "&cidade=" + cidade + "&tem_loja_na_cidade=1&filtro="+localStorage.filtro);
 			
 			//xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&categorias= and ( 0 or categoria like 'Roupas'  or categoria like 'Calçados'  or categoria like 'Acessórios'  or categoria like 'Info e Eletro'  or categoria like 'Estética e Saúde'  or categoria like 'Outros'  )&cep_bairro=" + localStorage.cep_bairro + "&cidade=" + localStorage.cidade + "&tem_loja_na_cidade=1");
 			//xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&categorias= and ( 0 or categoria like 'Roupas'  or categoria like 'Calçados'  or categoria like 'Acessórios'  or categoria like 'Info e Eletro'  or categoria like 'Estética e Saúde'  or categoria like 'Outros'  )&cep_bairro=04297000&cidade=São Paulo&tem_loja_na_cidade=1");
@@ -348,25 +308,14 @@ function fechar(){
 			}
 
 			function startRequest_categorias() {
-				createXMLHttpRequest_categorias();
-				xmlHttp3.onreadystatechange = handleStateChange_categorias;
+			createXMLHttpRequest_categorias();
+			xmlHttp3.onreadystatechange = handleStateChange_categorias;
 			
 			
-				xmlHttp3.open("POST", "http://52.67.44.156/m/ajax_categorias_app.php", true);
-				xmlHttp3.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-				
-				
-				
-				if( (typeof localStorage.filtro !== "undefined") && (localStorage.filtro != '') ){
-				
-					xmlHttp3.send('filtro='+localStorage.filtro);
-					
-				}else{
-					
-					xmlHttp3.send('filtro=');
-					
-				}
-
+			xmlHttp3.open("POST", "http://52.67.44.156/m/ajax_categorias_app.php", true);
+			xmlHttp3.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp3.send();
 			
 			}
 
@@ -383,14 +332,45 @@ function fechar(){
 				
 				var pos_num = str2.indexOf("#num");
 				
+				var pos_versao = str2.indexOf("#versao");
+				
 				
 				//document.getElementById("categorias_produtos").innerHTML = document.getElementById("categorias_produtos").innerHTML + str2.substring(0, pos_num); 
 				
-				document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
+				num_categorias = str2.substring((pos_num+4), pos_versao);
+				
+				versao_filtro = str2.substring((pos_num+7), str2.length);
+				
+				if( (typeof localStorage.versao_filtro === "undefined") || (localStorage.versao_filtro == '') ){
+					
+						localStorage.versao_filtro = versao_filtro;
+						
+						document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
+				
+				}else{
+				
+					if( localStorage.versao_filtro == versao_filtro){
+					
+						document.getElementById("categorias_produtos").innerHTML = (localStorage.filtro).replace("checked=\"false\"", "");
+						
+					
+					}else{
+					
+						document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
+				
+						localStorage.versao_filtro = versao_filtro;
+					
+					}//fim do else
+				
+						
+				}//fim do else
 				
 				
 				
-				num_categorias = str2.substring((pos_num+4), str2.length);
+				
+				
+				
+				//num_categorias = str2.substring((pos_num+4), str2.length);
 				
 				//alert("Recebeu:"+num_categorias);
 				
@@ -533,9 +513,6 @@ function desaparecer_busca_produto(){
 	 document.getElementById("div_produtos").innerHTML = "";
 	 
 	 localStorage.filtro = document.getElementById("categorias_produtos").innerHTML;
-	 var content = $('#categorias_produtos').html();
-
-	 //alert('content: '+content);
 	 
 	 document.getElementById("contador_geral").value =  0;
 	 document.getElementById("contador_geral_prod1").value =  0;
@@ -544,16 +521,13 @@ function desaparecer_busca_produto(){
 	 document.getElementById("top").value = 5;
 	 document.getElementById("left").value = 2;
 	 
-	 
-	 //if(document.getElementById("categorias_produtos").innerHTML == ''){
-	//	startRequest_categorias();
-	// }//fim do if
-	 
 	 startRequest_mais_produtos();
 	 
 	 desaparecer_busca_produto();
 	 
-	
+	 if(document.getElementById("categorias_produtos").innerHTML == ''){
+		startRequest_categorias();
+	 }//fim do if
 	 
 	 //window.location.href="busca.html";
  

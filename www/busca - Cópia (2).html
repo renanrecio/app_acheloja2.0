@@ -213,7 +213,6 @@ function fechar(){
 			var categorias_selecionada_agora = 0;
 						
 			var num_categorias=0;
-			var versao_filtro = "";
 			
 			function createXMLHttpRequest() {
 			if (window.ActiveXObject) {
@@ -228,8 +227,48 @@ function fechar(){
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 			
+			if( (typeof localStorage.cep_bairro !== "undefined") && (localStorage.cep_bairro != '') ){
+	
+				cep_bairro = localStorage.cep_bairro;
+				
+			}else{
+			
+				cep_bairro = '';
+			
+			}
 			
 			
+			if( (typeof localStorage.cidade !== "undefined") && (localStorage.cidade != '') ){
+	
+				cidade = localStorage.cidade;
+				
+			}else{
+			
+				cidade = 'São Paulo';
+			
+			}
+			
+			//Verificar quais categorias estão selecionada
+			
+			categorias = "and ( 0 ";
+			
+			for (i = 0; i < num_categorias; i++) { 
+			
+				if ( (document.getElementById('categoria'+i).checked) == true ){
+				
+					categorias = categorias + " or categoria like '"+ document.getElementById('categoria'+i).value +"' ";
+					categorias_selecionada_agora++;
+					
+				}//fim do if
+			}//fim do for
+			
+			categorias = categorias + " )";
+			
+			if(categorias_selecionada_agora == 0){
+			
+				categorias = "";
+				
+			} 
 			
 			//alert(categorias);
 			
@@ -332,45 +371,14 @@ function fechar(){
 				
 				var pos_num = str2.indexOf("#num");
 				
-				var pos_versao = str2.indexOf("#versao");
-				
 				
 				//document.getElementById("categorias_produtos").innerHTML = document.getElementById("categorias_produtos").innerHTML + str2.substring(0, pos_num); 
 				
-				num_categorias = str2.substring((pos_num+4), pos_versao);
-				
-				versao_filtro = str2.substring((pos_num+7), str2.length);
-				
-				if( (typeof localStorage.versao_filtro === "undefined") || (localStorage.versao_filtro == '') ){
-					
-						localStorage.versao_filtro = versao_filtro;
-						
-						document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
-				
-				}else{
-				
-					if( localStorage.versao_filtro == versao_filtro){
-					
-						document.getElementById("categorias_produtos").innerHTML = (localStorage.filtro).replace("checked=\"false\"", "");
-						
-					
-					}else{
-					
-						document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
-				
-						localStorage.versao_filtro = versao_filtro;
-					
-					}//fim do else
-				
-						
-				}//fim do else
+				document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
 				
 				
 				
-				
-				
-				
-				//num_categorias = str2.substring((pos_num+4), str2.length);
+				num_categorias = str2.substring((pos_num+4), str2.length);
 				
 				//alert("Recebeu:"+num_categorias);
 				
