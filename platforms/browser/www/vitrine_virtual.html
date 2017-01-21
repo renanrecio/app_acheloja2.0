@@ -264,7 +264,18 @@ function desaparecer_detalhes(e){
 </script> 
 
 
-<a style="text-decoration: none;" href="javascript:window.history.go(-1)"><span style="position:fixed; top:10%	; left:0%; font-size:2em; border:dashed gray; border-width: 0px 1px 0px 0px;">⇦</span></a>
+<a id="botao_voltar" style="text-decoration: none;" href="javascript:window.history.go(-1)"><span style="position:fixed; top:10%	; left:0%; font-size:2em; border:dashed gray; border-width: 0px 1px 0px 0px;">⇦</span></a>
+
+
+<script>
+if(localStorage.page == 'home'){
+	 document.getElementById('botao_voltar').href = "home.html"
+}
+
+if(localStorage.page == 'busca'){
+	 document.getElementById('botao_voltar').href = "busca.html"
+}
+</script>
 
 <script>
 //Deixar de seguir
