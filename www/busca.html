@@ -353,9 +353,9 @@ function fechar(){
 				
 					if( localStorage.versao_filtro == versao_filtro){
 					
-						document.getElementById("categorias_produtos").innerHTML = (localStorage.filtro).replace("checked=\"false\"", "");
+						var filtro_armazenado = localStorage.filtro;
+						document.getElementById("categorias_produtos").innerHTML = filtro_armazenado.replace(/checked="false"/gi, '');
 						
-					
 					}else{
 					
 						document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
