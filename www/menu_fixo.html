@@ -1,4 +1,9 @@
 ﻿
+<script>
+//variavel global para liberar o scroll da pagina home, para aparecer mais produtos
+var habilitar_scroll = true;
+</script>
+
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 
 		
@@ -23,6 +28,7 @@
 
 
 <script>
+
 
 if( ( (localStorage.foto_usuario) != '') && (typeof (localStorage.foto_usuario) !== "undefined") ) document.getElementById("foto_perfil_menu").src = localStorage.foto_usuario;
 
@@ -171,17 +177,36 @@ $(function () {
 <script language="javascript" type="text/javascript">
 	
 	function chamar_vitrine(nick_site, id_anuncio){
+	
+		document.getElementById('iframe_vitrine_loja').src = "http://acheloja.com/m/carregando_app.php";
 		
-		document.getElementById("img_carregando").style.visibility = "visible";
+		//document.getElementById("img_carregando").style.visibility = "visible";
 		
 		startRequest_clique_produtos(id_anuncio);
 		
 		localStorage.nick_site = nick_site;
 		
-		window.location.href="vitrine_virtual.html";
+		//window.location.href="vitrine_virtual.html";
+		document.getElementById('iframe_vitrine_loja').src = 'vitrine_virtual.html'; 
+		document.getElementById('div_produtos').style.visibility = 'hidden';
+		habilitar_scroll = false; 
+		document.getElementById('div_vitrine_loja').style.visibility = 'visible';
+		document.getElementById('iframe_vitrine_loja').style.visibility = 'visible'; 
+		
 		
 
 	}
+
+</script>
+
+
+<script>
+
+function recarregar_iframe(){
+
+	document.getElementById('iframe_vitrine_loja').src = 'vitrine_virtual.html';
+
+}
 
 </script>
 

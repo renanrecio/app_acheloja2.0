@@ -39,13 +39,13 @@
 .info{
     background: #e6e6e6;
     border-radius: 10px;
-    width: 12.3em;
+    width: 96%;
     height: 4em;
 
-    position: relative;
+    position: absolute;
 	top:0em;
 	
-	left:5%;
+	left:2%;
 }
 
 .info:after{
@@ -62,7 +62,7 @@
     border-bottom: 20px solid #e6e6e6;
 
     top: -20px;
-    right: 22%;
+    right: 8%;
 }
 </style>
 
@@ -246,36 +246,11 @@ function desaparecer_detalhes(e){
 </script>   
 
 
-<div id="div_vitrine">
-
-
-</div>
+<div id="div_vitrine"></div>
 	
-<div id="menu">
-
-</div>	
-
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>	
-<script> 
-    $(function(){
-      $("#menu").load("menu_fixo.html"); 
-    });
-</script> 
-
-
+<!--
 <a id="botao_voltar" style="text-decoration: none;" href="javascript:window.history.go(-1)"><span style="position:fixed; top:10%	; left:0%; font-size:2em; border:dashed gray; border-width: 0px 1px 0px 0px;">⇦</span></a>
-
-
-<script>
-if(localStorage.page == 'home'){
-	 document.getElementById('botao_voltar').href = "home.html"
-}
-
-if(localStorage.page == 'busca'){
-	 document.getElementById('botao_voltar').href = "busca.html"
-}
-</script>
+-->
 
 <script>
 //Deixar de seguir
@@ -295,7 +270,7 @@ if(localStorage.page == 'busca'){
 					return false;
 				}	
 					
-					document.getElementById("img_carregando").style.visibility = "visible";
+					//document.getElementById("img_carregando").style.visibility = "visible";
 								
 					createXMLHttpRequest_deixar_de_seguir();
 					xmlHttp.onreadystatechange = handleStateChange_deixar_de_seguir;
@@ -304,7 +279,6 @@ if(localStorage.page == 'busca'){
 					xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp.send("id_usuario="+id_usuario+"&id_anuncio="+id_anuncio);
-					
 					
 					//document.getElementById("msg_enviado").style.visibility = "visible";
 					
@@ -316,7 +290,8 @@ if(localStorage.page == 'busca'){
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
 			
-					window.location.href="home.html";
+					location.href=location.href;
+					history.go(0);
 			}
 			}
 			}
@@ -334,7 +309,7 @@ if(localStorage.page == 'busca'){
 
 			function startRequest_comecar_seguir(id_usuario, id_anuncio) {
 			
-			document.getElementById("img_carregando").style.visibility = "visible";
+			//document.getElementById("img_carregando").style.visibility = "visible";
 			
 			createXMLHttpRequest_comecar_seguir();
 			xmlHttp.onreadystatechange = handleStateChange_comecar_seguir;
@@ -405,6 +380,7 @@ if(localStorage.page == 'busca'){
 		google.maps.event.addDomListener(window, 'load', initialize);
 
 </script> 
+
 
 
 </body>

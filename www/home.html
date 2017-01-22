@@ -2,9 +2,7 @@
 <html>
 <head>
 
-<script>
-localStorage.page = 'home';
-</script>
+
 
    <link rel="stylesheet" href="lib/font-awesome-4.5.0/css/font-awesome.min.css" />
 
@@ -57,7 +55,7 @@ body{
 
 		<script>			
 		//Conta o visualização do produto do anunciante
-					 
+					
 					var xmlHttp;
 					 
 					function createXMLHttpRequest_visualizacao_produtos() {
@@ -198,7 +196,7 @@ body{
 				
 		</div>
 		
-		<div id="div_produtos" style="position: absolute; top:10%; left:0%; width:100%;" ></div>	
+		<div id="div_produtos" style="position: absolute; top:10%; left:0%; width:100%; visibility:visible;" ></div>	
 		
 		<div id="rodape_para_aparecer_produtos" style="position: absolute; width: 90%; left:5%; height: 30%; line-height:20%;">
 			
@@ -207,6 +205,17 @@ body{
 			<p>&nbsp;</p>
 			
 		</div>
+		
+		<img id="img_carregando_produtos" src="fotos/carregando_produtos.gif" style="border-radius:5px; visibility: hidden; width:40%; position: fixed; left:30%; bottom:5em;" />
+		
+		
+		<!-- Ver Vitrine Loja -->
+		<div id="div_vitrine_loja" style=" visibility: hidden; position: fixed; left:0%; top:0%; height:100%;  width:100%;">
+			<iframe id="iframe_vitrine_loja" src="vitrine_virtual.html" style="position: fixed; top:0%; width:100%; left:0%; height:100%; visibility: hidden;"></iframe>
+			<span onclick="document.getElementById('div_produtos').style.visibility = 'visible'; habilitar_scroll = true; document.getElementById('iframe_vitrine_loja').style.visibility = 'hidden'; document.getElementById('div_vitrine_loja').style.visibility = 'hidden';" style="position:fixed; top:2em; left:0%; font-size:2em; border:dashed gray; border-width: 0px 1px 0px 0px;">⇦ </span>
+
+		</div>
+			
 		
 			
 		<div id="menu">
@@ -355,11 +364,13 @@ body{
 		$(function () {
 				
 			   $(window).scroll(function () {
-					if($(window).scrollTop() + $(window).height() > $(document).height()-1500) {
-							  //alert("foi");
-							  startRequest_mais_produtos();
-								// add your custom function here. i.e what you want to do.
-					 }
+					if(habilitar_scroll == true){
+						if($(window).scrollTop() + $(window).height() > $(document).height()-1500) {
+								  //alert("foi");
+								  startRequest_mais_produtos();
+									// add your custom function here. i.e what you want to do.
+						 }
+					}
 				});
 		});
 		</script>
@@ -413,8 +424,7 @@ body{
 		  
 		 <a href="home.html"><img src="fotos/casa_selecionada.png" width="100%" style=" position:fixed; background-color: #0054a6; bottom:0em; left:10%; width:2.8em; height:2.8em;" /> </a>
 
-		 <img id="img_carregando_produtos" src="fotos/carregando_produtos.gif" style="border-radius:5px; visibility: hidden; width:40%; position: fixed; left:30%; bottom:5em;" />
-		
+	
 
 		<!-- 
 		 <div id="msg_sem_lojas" style="visibility: hidden; position: absolute; top:10%; width:90%; left:5%; height:75%; background-color: black; opacity:0.70; filter:alpha(opacity=70);">
@@ -430,10 +440,6 @@ body{
 		<script>
 		startRequest_mais_produtos();
 		</script> 	
-		
-
-
-
 
 </body>
 

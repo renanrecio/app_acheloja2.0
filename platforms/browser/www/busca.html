@@ -2,9 +2,7 @@
 <html>
 <head>
 
-<script>
-localStorage.page = 'busca';
-</script>
+
 
 <meta http-equiv="X-UA-Compatible" content="IE=10" />
 
@@ -425,13 +423,15 @@ function checar(categoria){
 $(function () {
 		
        $(window).scroll(function () {
-			if($(window).scrollTop() + $(window).height() > $(document).height()-1500) {
-					  //alert("foi");
-					  startRequest_mais_produtos();
-						// add your custom function here. i.e what you want to do.
-			 }
-			 desaparecer_busca_produto(); 
-			 desaparecer_busca_loja();
+			if(habilitar_scroll == true){
+				if($(window).scrollTop() + $(window).height() > $(document).height()-1500) {
+						  //alert("foi");
+						  startRequest_mais_produtos();
+							// add your custom function here. i.e what you want to do.
+				 }
+				 desaparecer_busca_produto(); 
+				 desaparecer_busca_loja();
+			}
 		});
 });
 </script>
@@ -449,7 +449,15 @@ $(function () {
 	-->
  
  
+ <img id="img_carregando_produtos" src="fotos/carregando_produtos.gif" style="border-radius:5px; visibility: hidden; width:40%; position: fixed; left:30%; bottom:5em;" />
+		
+ 
+<!-- Ver Vitrine Loja -->
+		<div id="div_vitrine_loja" style=" visibility: hidden; position: fixed; left:0%; top:0%; height:100%;  width:100%;">
+			<iframe id="iframe_vitrine_loja" src="vitrine_virtual.html" style="position: fixed; top:0%; width:100%; left:0%; height:100%; visibility: hidden;"></iframe>
+			<span onclick="document.getElementById('div_produtos').style.visibility = 'visible'; habilitar_scroll = true; document.getElementById('iframe_vitrine_loja').style.visibility = 'hidden'; document.getElementById('div_vitrine_loja').style.visibility = 'hidden';" style="position:fixed; top:2em; left:0%; font-size:2em; border:dashed gray; border-width: 0px 1px 0px 0px;">⇦ </span>
 
+		</div>
  
 
  
@@ -470,8 +478,7 @@ $(function () {
 <a href="busca.html"><img src="fotos/lupa_selecionada.png" width="100%" style=" position:fixed; background-color: #0054a6; bottom:0em; left:32%; width:2.8em; height:2.8em;" /> </a>
 
  
-<img id="img_carregando_produtos" src="fotos/carregando_produtos.gif" style="border-radius:5px; visibility: hidden; width:40%; position: fixed; left:30%; bottom:5em;" />
-		
+
 
  <!-- Filtros -->
 <script>
@@ -533,6 +540,11 @@ function desaparecer_busca_produto(){
 	 if(document.getElementById("categorias_produtos").innerHTML == ''){
 		startRequest_categorias();
 	 }//fim do if
+	 
+	 document.getElementById('div_produtos').style.visibility = 'visible';
+	 document.getElementById('div_vitrine_loja').style.visibility = 'hidden';
+	 document.getElementById('iframe_vitrine_loja').style.visibility = 'hidden'; 
+	 
 	 
 	 //window.location.href="busca.html";
  

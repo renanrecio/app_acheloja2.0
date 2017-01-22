@@ -63,7 +63,7 @@
 				str = xmlHttp.responseText.trim();
 				
 				
-				document.getElementById("div_lojas").innerHTML = document.getElementById("div_lojas").innerHTML + str;
+				document.getElementById("div_produtos").innerHTML = document.getElementById("div_produtos").innerHTML + str;
 				
 
 				
@@ -83,9 +83,20 @@
 
 <p style="position:absolute; top:10%; color: black; font-size:1.1em; width:80%; left:10%; text-decoration:underline; font-weight:bold;"> Lojas </p>
 
-<div id="div_lojas" style="position:absolute; width:100%; top:16%; left:0%;"></div>
+
+<!-- essa div é de lojas mas foi nomeada como div_produtos para facilitar a programacao -->
+<div id="div_produtos" style="position:absolute; width:100%; top:16%; left:0%;"></div>
 
 
+<a style="text-decoration: none;" href="javascript:window.history.go(-1)"><span style="position:fixed; top:10%; left:0%; font-size:2em; border:dashed gray; border-width: 0px 1px 0px 0px;">⇦</span></a>
+
+ 
+<!-- Ver Vitrine Loja -->
+		<div id="div_vitrine_loja" style=" visibility: hidden; position: fixed; left:0%; top:0%; height:100%;  width:100%;">
+			<iframe id="iframe_vitrine_loja" src="vitrine_virtual.html" style="position: fixed; top:0%; width:100%; left:0%; height:100%; visibility: hidden;"></iframe>
+			<span onclick="document.getElementById('div_produtos').style.visibility = 'visible'; habilitar_scroll = true; document.getElementById('iframe_vitrine_loja').style.visibility = 'hidden'; document.getElementById('div_vitrine_loja').style.visibility = 'hidden';" style="position:fixed; top:2em; left:0%; font-size:2em; border:dashed gray; border-width: 0px 1px 0px 0px;">⇦ </span>
+
+		</div>
 	
 <div id="menu">
 
@@ -101,7 +112,6 @@
 
 
 
-<a style="text-decoration: none;" href="javascript:window.history.go(-1)"><span style="position:fixed; top:10%; left:0%; font-size:2em; border:dashed gray; border-width: 0px 1px 0px 0px;">⇦</span></a>
 
 
 
