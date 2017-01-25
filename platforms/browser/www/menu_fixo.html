@@ -176,13 +176,18 @@ $(function () {
 
 <script language="javascript" type="text/javascript">
 	
-	function chamar_vitrine(nick_site, id_anuncio){
+	function chamar_vitrine(nick_site, id_anuncio, id_produto){
 	
 		document.getElementById('iframe_vitrine_loja').src = "http://acheloja.com/m/carregando_app.php";
 		
 		//document.getElementById("img_carregando").style.visibility = "visible";
 		
-		startRequest_clique_produtos(id_anuncio);
+		if( (id_produto != '') || (id_produto != null) ){
+		
+			startRequest_clique_produtos(id_anuncio, id_produto, localStorage.id_usuario);
+		
+		}
+		
 		
 		localStorage.nick_site = nick_site;
 		
@@ -224,14 +229,15 @@ function recarregar_iframe(){
 			}
 			
 			
-			function startRequest_clique_produtos(id) {
+			function startRequest_clique_produtos(id_anuncio, id_produto, id_usuario) {
 			createXMLHttpRequest_clique_produtos();
 			xmlHttp2.onreadystatechange = handleStateChange_clique_produtos;
 			
 			xmlHttp2.open("POST", "http://52.67.44.156/validar/cliques_ajax.php", true);
 			xmlHttp2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
-			xmlHttp2.send("id="+id+"&tipo=clique_produto");
+			//xmlHttp2.send("id="+id+"&tipo=clique_produto");
+			xmlHttp2.send("id="+id_anuncio+"&tipo=clique_produto&id_usuario="+id_usuario+"&id_produto="+id_produto+"");
 			
 			
 			

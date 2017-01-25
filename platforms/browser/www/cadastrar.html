@@ -258,6 +258,12 @@ var xmlHttp;
 						
 				
 				
+			}else{
+			
+			
+				document.getElementById("img_carregando").style.visibility = "hidden";
+				alert("Sem Conexão com a Internet");
+				
 			}
 			}
 			}
@@ -440,12 +446,12 @@ textarea {
 	
 </script>  
 
- <div id="img_carregando" style=" position: fixed; visibility: hidden; top:0em; height:100%; width:100%; opacity: 0.8; filter: alpha(opacity=80); background-color: white;">
+
+ <div id="img_carregando" style=" position: fixed; visibility: hidden; top:0em; left:-1%; height:100%; width:102%; opacity: 0.8; filter: alpha(opacity=80); background-color: white;">
 	 <center>
-		<img  src="http://52.67.44.156/fotos/carregando_novo.gif" style="border-radius:25px; position: relative; top:17em;  width:90%;" />
+		<img  src="fotos/carregando_produtos.gif" style="border-radius:25px; position: relative; top:17em;  width:70%;" />
 	 </center>
  </div>
-
 		
 </body>
 	

@@ -212,10 +212,13 @@ function fechar(){
 			var cidade;
 			var cep_bairro;
 			var categorias;
-			var categorias_selecionada_agora = 0;
+			
+			var enviou_filtro_id_usuario = 0;
 						
 			var num_categorias=0;
 			var versao_filtro = "";
+			
+			var tem_conexao_internet = 1;
 			
 			function createXMLHttpRequest() {
 			if (window.ActiveXObject) {
@@ -238,7 +241,16 @@ function fechar(){
 			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_lojas_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
-			xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&tem_loja_na_cidade=1&filtro="+localStorage.filtro);
+			if(enviou_filtro_id_usuario == 0){
+			
+				xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&tem_loja_na_cidade=1&filtro="+localStorage.filtro+"&id_usuario="+localStorage.id_usuario);
+				enviou_filtro_id_usuario = 1;
+				
+			}else{
+			
+				xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&tem_loja_na_cidade=1&filtro="+localStorage.filtro+"&id_usuario=");
+				
+			}
 			
 			
 			//xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador_geral_prod2=" + document.getElementById("contador_geral_prod2").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&categorias="+categorias+"&cep_bairro=" + cep_bairro + "&cidade=" + cidade + "&tem_loja_na_cidade=1&filtro="+localStorage.filtro);
@@ -292,7 +304,15 @@ function fechar(){
 				document.getElementById("top").value = str.substring((pos_t+2), pos_l);
 				document.getElementById("left").value = str.substring((pos_l+2), str.length);
 				
+				tem_conexao_internet = 1;
 				
+			}else{
+			
+				if(tem_conexao_internet == 1){
+					document.getElementById("img_carregando_produtos").style.visibility = "hidden";
+					alert("Sem Conexão com a Internet");
+					tem_conexao_internet = 0;
+				}
 			}
 			}
 			}
@@ -341,26 +361,52 @@ function fechar(){
 				
 				num_categorias = str2.substring((pos_num+4), pos_versao);
 				
-				versao_filtro = str2.substring((pos_num+7), str2.length);
+				versao_filtro = str2.substring((pos_versao+7), str2.length);
 				
 				if( (typeof localStorage.versao_filtro === "undefined") || (localStorage.versao_filtro == '') ){
 					
 						localStorage.versao_filtro = versao_filtro;
 						
 						document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
+						
+						 if( document.getElementById("categorias_produtos").innerHTML != ''){
+	 
+							localStorage.filtro = document.getElementById("categorias_produtos").innerHTML;
+							
+						 }
 				
 				}else{
 				
 					if( localStorage.versao_filtro == versao_filtro){
 					
-						var filtro_armazenado = localStorage.filtro;
-						document.getElementById("categorias_produtos").innerHTML = filtro_armazenado.replace(/checked="false"/gi, '');
+							var filtro_armazenado = localStorage.filtro;
+							if( ( filtro_armazenado == '') || (typeof localStorage.filtro === "undefined") || (localStorage.filtro == null) ){
+								
+								document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
+								
+								if( document.getElementById("categorias_produtos").innerHTML != ''){
+	 
+									localStorage.filtro = document.getElementById("categorias_produtos").innerHTML;
+									
+								 }
+								
+							}else{
+							
+								document.getElementById("categorias_produtos").innerHTML = filtro_armazenado.replace(/checked="false"/gi, '');
 						
+							}	
+							
 					}else{
 					
 						document.getElementById("categorias_produtos").innerHTML = str2.substring(0, pos_num); 
 				
 						localStorage.versao_filtro = versao_filtro;
+						
+						 if( document.getElementById("categorias_produtos").innerHTML != ''){
+	 
+							localStorage.filtro = document.getElementById("categorias_produtos").innerHTML;
+							
+						 }
 						
 					
 					}//fim do else
@@ -380,10 +426,6 @@ function fechar(){
 				
 				
 				
-			}else{
-			
-					alert("Sem Conexão com a Internet");
-			
 			}
 			}
 			}
@@ -518,13 +560,25 @@ function desaparecer_busca_produto(){
  
  
  function filtrar(){
- 
+	
+	
+	enviou_filtro_id_usuario = 0; //tem que guardar novo filtro
+	
+	if(document.getElementById("categorias_produtos").innerHTML == ''){
+		startRequest_categorias();
+	 }//fim do if
+	 
 	 localStorage.cep_bairro = document.getElementById("cep_bairro").value;
 	 localStorage.cidade = document.getElementById("cidade").value;
 	 
 	 document.getElementById("div_produtos").innerHTML = "";
 	 
-	 localStorage.filtro = document.getElementById("categorias_produtos").innerHTML;
+	 if( document.getElementById("categorias_produtos").innerHTML != ''){
+	 
+		localStorage.filtro = document.getElementById("categorias_produtos").innerHTML;
+		
+	 }
+		
 	 
 	 document.getElementById("contador_geral").value =  0;
 	 document.getElementById("contador_geral_prod1").value =  0;
@@ -537,9 +591,7 @@ function desaparecer_busca_produto(){
 	 
 	 desaparecer_busca_produto();
 	 
-	 if(document.getElementById("categorias_produtos").innerHTML == ''){
-		startRequest_categorias();
-	 }//fim do if
+	 
 	 
 	 document.getElementById('div_produtos').style.visibility = 'visible';
 	 document.getElementById('div_vitrine_loja').style.visibility = 'hidden';

@@ -275,6 +275,7 @@ body{
 		<script type="text/javascript">
 					var top_ultimo_prod;
 					
+					var tem_conexao_internet = 1;
 				
 					function createXMLHttpRequest() {
 					if (window.ActiveXObject) {
@@ -342,14 +343,17 @@ body{
 						if( (document.getElementById("div_produtos").innerHTML) == '') document.getElementById("msg_sem_lojas").style.visibility = "visible";
 						//if( document.getElementById("contador_geral").value < 1 ) document.getElementById("msg_sem_lojas").style.visibility = "visible";
 
+						tem_conexao_internet = 1;
 						
 						
-						
-					}//else{
-					
-							//alert("Sem Conexão com a Internet");
-					
-					//}
+					}else{
+			
+						if(tem_conexao_internet == 1){
+							document.getElementById("img_carregando_produtos").style.visibility = "hidden";
+							alert("Sem Conexão com a Internet");
+							tem_conexao_internet = 0;
+						}
+					}
 					}
 					}
 					

@@ -105,7 +105,7 @@ textarea {
 		<img style="position:absolute; width:50%; top:3%; left:25%;" src="fotos/logo2.png" />
 		
 		<form action="">
-				<span style="position: absolute; top:19%; left:5%; height: 7%; width:90%;  font-size:2em; color:#0070a1; font-weight: bold; text-decoration: underline;"> Recuperar Senha</span>
+				<span style="position: absolute; top:19%; left:5%; height: 7%; width:90%;  font-size:2em; color:#0070a1; font-weight: bold;"> Recuperar Senha</span>
 				<span style="position: absolute; top:35%; left:0%; height: 7%; width:30%;  font-size:1.5em; color:#0070a1;"> E-mail:</span>				
 				<input id="email" name="email" type="text" style="position: absolute; top:40%; left:5%; height: 5%; width:90%;  font-size:1em; color:white;"  placeholder=" Digite seu E-mail para receber sua senha" />
 		</form>
@@ -132,26 +132,29 @@ textarea {
 			}
 
 			function startRequest_recuperar_senha() {
-			createXMLHttpRequest_recuperar_senha();
-			xmlHttp.onreadystatechange = handleStateChange_recuperar_senha;
-			 
-			 
-			 ///Verificar se campo está vazio
-			  if(document.getElementById("email").value == ''){
-						
-						alert("Preencha o seu email!");
-						document.getElementById("email").focus();
-						return false;
+				createXMLHttpRequest_recuperar_senha();
+				xmlHttp.onreadystatechange = handleStateChange_recuperar_senha;
+				 
+				 document.getElementById("img_carregando").style.visibility = "visible";
+				 
+				 ///Verificar se campo está vazio
+				  if(document.getElementById("email").value == ''){
+							
+							alert("Preencha o seu email!");
+							document.getElementById("email").focus();
+							document.getElementById("img_carregando").style.visibility = "hidden";
+							return false;
+					}
+					
+				if(ValidarEmail(document.getElementById("email")) == false){
+					document.getElementById("img_carregando").style.visibility = "hidden";
+					return false;
 				}
 				
-			if(ValidarEmail(document.getElementById("email")) == false){
-				return false;
-			}
-			
-			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_recuperar_senha_app.php", true);
-			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-			
-			xmlHttp.send("email="+document.getElementById("email").value);
+				xmlHttp.open("POST", "http://52.67.44.156/m/ajax_recuperar_senha_app.php", true);
+				xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				
+				xmlHttp.send("email="+document.getElementById("email").value);
 			
 			}
 
@@ -160,6 +163,8 @@ textarea {
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
 			
+				document.getElementById("img_carregando").style.visibility = "hidden";
+				
 				str = xmlHttp.responseText.trim();
 				
 				str = str.trim();
@@ -186,7 +191,13 @@ textarea {
 				}//fim do else
 				
 				
+				
+				
+			}else{
 			
+			
+				document.getElementById("img_carregando").style.visibility = "hidden";
+				alert("Sem Conexão com a Internet");
 				
 			}
 			}
@@ -197,6 +208,12 @@ textarea {
 
 <div id="resp"></div>
 
+
+<div id="img_carregando" style=" position: fixed; visibility: hidden; top:0em; left:-1%; height:100%; width:102%; opacity: 0.8; filter: alpha(opacity=80); background-color: white;">
+	 <center>
+		<img  src="fotos/carregando_produtos.gif" style="border-radius:25px; position: relative; top:17em;  width:70%;" />
+	 </center>
+ </div>
 			
 </body>
 	
