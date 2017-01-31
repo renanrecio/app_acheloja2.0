@@ -53,54 +53,11 @@ body{
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 
-		<script>			
-		//Conta o visualização do produto do anunciante
-					
-					var xmlHttp;
-					 
-					function createXMLHttpRequest_visualizacao_produtos() {
-					if (window.ActiveXObject) {
-					xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
-					}
-					else if (window.XMLHttpRequest) {
-					xmlHttp = new XMLHttpRequest();
-					}
-					}
-					
-					
-					function startRequest_visualizacao_produtos(id) {
-					createXMLHttpRequest_visualizacao_produtos();
-					xmlHttp.onreadystatechange = handleStateChange_visualizacao_produtos;
-					
-					xmlHttp.open("POST", "http://52.67.44.156/validar/cliques_ajax.php", true);
-					xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-					
-					xmlHttp.send("id="+id+"&tipo=visualizacao_produto");
-					
-					
-					
-					
-				
-					}
 
-					
-					function handleStateChange_visualizacao_produtos() {
-					if(xmlHttp.readyState == 4) {
-					if(xmlHttp.status == 200) {
-						
-						
-						//Não fazer nada
-						 
-						
-					}
-					}
-					}			
-
-				 </script>
 <script>
 //enviar o REG ID para o BD - para push notification
 			 
-			 
+			 var xmlHttp;
 			 
 			function createXMLHttpRequest_id_push() {
 			if (window.ActiveXObject) {
@@ -124,7 +81,7 @@ body{
 			localStorage.id_dispositivo = regid;
 			
 			
-			xmlHttp.open("POST", "http://52.67.44.156/m/app_reg_id_push_ajax.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/m/app_reg_id_push_ajax.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("reg_id="+regid+"&id_usuario="+localStorage.id_usuario);
@@ -192,7 +149,7 @@ body{
 		
 		<div id="msg_sem_lojas"	style="position: absolute; top:0%; left:0%; width:100%; height:150%; visibility: hidden;" >
 		
-			<img src="http://52.67.44.156/fotos/passo_a_passo_mobile.png"  style=" position:absolute; top:4em; background-color: #0054a6; width:80%; left:10%;" /> 
+			<img src="https://acheloja.com/fotos/passo_a_passo_mobile.png"  style=" position:absolute; top:4em; background-color: #0054a6; width:80%; left:10%;" /> 
 				
 		</div>
 		
@@ -291,7 +248,7 @@ body{
 					xmlHttp.onreadystatechange = handleStateChange;
 					
 					
-					xmlHttp.open("POST", "http://52.67.44.156/m/ajax_vitrines_favoritas_app.php", true);
+					xmlHttp.open("POST", "https://acheloja.com/m/ajax_vitrines_favoritas_app.php", true);
 					xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp.send("contador_geral=" + document.getElementById("contador_geral").value  + "&contador_geral_prod1=" + document.getElementById("contador_geral_prod1").value  + "&contador=" + document.getElementById("contador").value + "&top=" + document.getElementById("top").value + "&left=" + document.getElementById("left").value + "&id_usuario="+ localStorage.id_usuario +"&tem_loja_na_cidade=1");
@@ -394,7 +351,7 @@ body{
 							createXMLHttpRequest_visualizar_vitrine();
 							xmlHttp.onreadystatechange = handleStateChange_visualizar_vitrine;
 							
-							xmlHttp.open("POST", "http://52.67.44.156/validar/atualizar_visualizacao_minhas_vitrine.php", true);
+							xmlHttp.open("POST", "https://acheloja.com/validar/atualizar_visualizacao_minhas_vitrine.php", true);
 							xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 							
 							xmlHttp.send("id_usuario="+localStorage.id_usuario+"");

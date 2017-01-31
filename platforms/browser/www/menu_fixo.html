@@ -70,7 +70,7 @@ document.getElementById("nome_usuario").innerHTML = nome_menu;
 					createXMLHttpRequest_abrir_novidades();
 					xmlHttp2.onreadystatechange = handleStateChange_abrir_novidades;
 					
-					xmlHttp2.open("POST", "http://52.67.44.156/validar/abrir_novidades.php", true);
+					xmlHttp2.open("POST", "https://acheloja.com/validar/abrir_novidades.php", true);
 					xmlHttp2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp2.send("id_usuario="+localStorage.id_usuario+"");
@@ -104,7 +104,7 @@ document.getElementById("nome_usuario").innerHTML = nome_menu;
 					createXMLHttpRequest_novidades();
 					xmlHttp2.onreadystatechange = handleStateChange_novidades;
 					
-					xmlHttp2.open("POST", "http://52.67.44.156/m/ajax_novidades_usuario_app.php", true);
+					xmlHttp2.open("POST", "https://acheloja.com/m/ajax_novidades_usuario_app.php", true);
 					xmlHttp2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp2.send("id_usuario="+localStorage.id_usuario+"");
@@ -233,7 +233,7 @@ function recarregar_iframe(){
 			createXMLHttpRequest_clique_produtos();
 			xmlHttp2.onreadystatechange = handleStateChange_clique_produtos;
 			
-			xmlHttp2.open("POST", "http://52.67.44.156/validar/cliques_ajax.php", true);
+			xmlHttp2.open("POST", "https://acheloja.com/validar/cliques_ajax.php", true);
 			xmlHttp2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			//xmlHttp2.send("id="+id+"&tipo=clique_produto");
@@ -256,6 +256,51 @@ function recarregar_iframe(){
 			}
 			}
 			}
+</script>
+
+<script>			
+		//Conta o visualização do produto do anunciante
+					
+					
+					 
+					function createXMLHttpRequest_visualizacao_produtos() {
+					if (window.ActiveXObject) {
+					xmlHttp2 = new ActiveXObject("Microsoft.XMLHTTP");
+					}
+					else if (window.XMLHttpRequest) {
+					xmlHttp2 = new XMLHttpRequest();
+					}
+					}
+					
+					
+					function startRequest_visualizacao_produtos(id) {
+					createXMLHttpRequest_visualizacao_produtos();
+					xmlHttp2.onreadystatechange = handleStateChange_visualizacao_produtos;
+					
+					xmlHttp2.open("POST", "https://acheloja.com/validar/cliques_ajax.php", true);
+					xmlHttp2.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+					
+					xmlHttp2.send("id="+id+"&tipo=visualizacao_produto");
+					
+					
+					
+					
+				
+					}
+
+					
+					function handleStateChange_visualizacao_produtos() {
+					if(xmlHttp2.readyState == 4) {
+					if(xmlHttp2.status == 200) {
+						
+						
+						//Não fazer nada
+						 
+						
+					}
+					}
+					}			
+
 </script>
 
 

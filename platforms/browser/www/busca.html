@@ -238,7 +238,7 @@ function fechar(){
 			
 			//alert(categorias);
 			
-			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_lojas_app.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/m/ajax_lojas_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			if(enviou_filtro_id_usuario == 0){
@@ -334,7 +334,7 @@ function fechar(){
 			xmlHttp3.onreadystatechange = handleStateChange_categorias;
 			
 			
-			xmlHttp3.open("POST", "http://52.67.44.156/m/ajax_categorias_app.php", true);
+			xmlHttp3.open("POST", "https://acheloja.com/m/ajax_categorias_app.php", true);
 			xmlHttp3.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp3.send();

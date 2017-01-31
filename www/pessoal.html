@@ -400,7 +400,7 @@ function submeter(){
 			createXMLHttpRequest3();
 			xmlHttp.onreadystatechange = handleStateChange3;
 			
-			xmlHttp.open("GET", "http://52.67.44.156/validar/cpf.php?cpf="+document.getElementById("cpf").value, true);
+			xmlHttp.open("GET", "https://acheloja.com/validar/cpf.php?cpf="+document.getElementById("cpf").value, true);
 			
 			
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -598,11 +598,11 @@ function submeter(){
 
 			
 			
-			xmlHttp.open("POST", "http://52.67.44.156/ajax_foto_perfil.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/ajax_foto_perfil.php", true);
 			
 			xmlHttp.send(formData);
 			
-			//document.getElementById("foto_do_perfil").src = "http://52.67.44.156/fotos/carregando.gif";
+			//document.getElementById("foto_do_perfil").src = "https://acheloja.com/fotos/carregando.gif";
 			
 			document.getElementById("foto_do_perfil").src = "http://acheloja.com/fotos/carregandoQuad.gif";
 			
@@ -656,11 +656,11 @@ function submeter(){
 
 			
 			
-			xmlHttp.open("POST", "http://52.67.44.156/ajax_capa_usuario.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/ajax_capa_usuario.php", true);
 			
 			xmlHttp.send(formData);
 			
-			//document.getElementById("foto_da_capa").style.backgroundImage = "url('http://52.67.44.156/fotos/carregando.gif')";
+			//document.getElementById("foto_da_capa").style.backgroundImage = "url('https://acheloja.com/fotos/carregando.gif')";
 			
 			document.getElementById("foto_da_capa").src = "http://acheloja.com/fotos/carregandoCapa.gif";
 			
@@ -704,7 +704,7 @@ function submeter(){
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 			
-			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_pessoal_app.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/m/ajax_pessoal_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_usuario="+localStorage.id_usuario+"&atualizar=0");
@@ -751,7 +751,7 @@ function submeter(){
 			createXMLHttpRequest4();
 			xmlHttp.onreadystatechange = handleStateChange4;
 			
-			xmlHttp.open("GET", "http://52.67.44.156/validar/editar_email.php?email="+document.getElementById("email").value+"&email_antigo="+localStorage.email_usuario, true);
+			xmlHttp.open("GET", "https://acheloja.com/validar/editar_email.php?email="+document.getElementById("email").value+"&email_antigo="+localStorage.email_usuario, true);
 			
 			
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
@@ -804,7 +804,7 @@ function submeter(){
 			createXMLHttpRequest_update();
 			xmlHttp.onreadystatechange = handleStateChange_update;
 			
-			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_pessoal_app.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/m/ajax_pessoal_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			

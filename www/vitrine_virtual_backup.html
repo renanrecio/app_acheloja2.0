@@ -215,7 +215,7 @@ function desaparecer_detalhes(e){
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 			
-			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_vitrine_app.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/m/ajax_vitrine_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("nick_site="+localStorage.nick_site+"&id_usuario="+localStorage.id_usuario);
@@ -291,7 +291,7 @@ function desaparecer_detalhes(e){
 					createXMLHttpRequest_deixar_de_seguir();
 					xmlHttp.onreadystatechange = handleStateChange_deixar_de_seguir;
 					
-					xmlHttp.open("POST", "http://52.67.44.156/validar/deixar_de_seguir.php", true);
+					xmlHttp.open("POST", "https://acheloja.com/validar/deixar_de_seguir.php", true);
 					xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 					
 					xmlHttp.send("id_usuario="+id_usuario+"&id_anuncio="+id_anuncio);
@@ -330,7 +330,7 @@ function desaparecer_detalhes(e){
 			createXMLHttpRequest_comecar_seguir();
 			xmlHttp.onreadystatechange = handleStateChange_comecar_seguir;
 			
-			xmlHttp.open("POST", "http://52.67.44.156/validar/comecar_seguir.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/validar/comecar_seguir.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_usuario="+id_usuario+"&id_anuncio="+id_anuncio);
@@ -367,7 +367,7 @@ function desaparecer_detalhes(e){
 			createXMLHttpRequest_novos_seguidores();
 			xmlHttp.onreadystatechange = handleStateChange_novos_seguidores;
 			
-			xmlHttp.open("POST", "http://52.67.44.156/validar/cliques_ajax.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/validar/cliques_ajax.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id="+id+"&tipo=novos_seguidores");

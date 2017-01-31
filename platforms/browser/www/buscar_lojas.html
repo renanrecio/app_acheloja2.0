@@ -45,7 +45,7 @@
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 			
-			xmlHttp.open("POST", "http://52.67.44.156/m/ajax_buscar_lojas_app.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/m/ajax_buscar_lojas_app.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("nome_loja="+localStorage.nome_loja);
@@ -133,7 +133,7 @@
 			createXMLHttpRequest_clique_loja();
 			xmlHttp.onreadystatechange = handleStateChange_clique_loja;
 			
-			xmlHttp.open("POST", "http://52.67.44.156/validar/cliques_ajax.php", true);
+			xmlHttp.open("POST", "https://acheloja.com/validar/cliques_ajax.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id="+id+"&tipo=clique_produto");
