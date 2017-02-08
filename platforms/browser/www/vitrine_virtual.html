@@ -215,7 +215,9 @@ function desaparecer_detalhes(e){
 			xmlHttp.onreadystatechange = handleStateChange;
 			
 			
-			xmlHttp.open("POST", "https://acheloja.com/m/ajax_vitrine_app.php", true);
+			//xmlHttp.open("POST", "https://acheloja.com/m/ajax_vitrine_app.php", true);
+			xmlHttp.open("POST", "http://52.67.44.156//m/ajax_vitrine_app.php", true);
+			
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("nick_site="+localStorage.nick_site+"&id_usuario="+localStorage.id_usuario);
@@ -234,6 +236,7 @@ function desaparecer_detalhes(e){
 				
 				document.getElementById("div_vitrine").innerHTML = document.getElementById("div_vitrine").innerHTML + str;
 				
+				$('.cabecalho').fadeOut();
 				
 			}
 			}
@@ -381,6 +384,25 @@ function desaparecer_detalhes(e){
 
 </script> 
 
+<!-- Para fazer a div com o nome da loja aparece ou desaparece -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				$('.cabecalho').fadeOut();
+			}	
+			
+			$(function () {
+				
+				$(window).scroll(function () {
+					if ($(this).scrollTop() > 100) {
+						$('.cabecalho').fadeIn();
+					} else {
+						$('.cabecalho').fadeOut();
+					}
+					
+				});
+			});
+		</script>
 
 
 </body>

@@ -1,6 +1,6 @@
 body
 {
-font-family:Arial, Helvetica, sans-serif;
+font-family: 'Montserrat', sans-serif;
 text-align:center;
 background-color: white;
 background-size: 100%;
@@ -9,25 +9,28 @@ cursor: default;
 	
 }
 
+p, input, span,a,li,placeholder,select,option,td,tr{
+	font-family: 'Montserrat', sans-serif;
+}
 
 ::-webkit-input-placeholder {
    color: gray;
-   font: 16px verdana, arial, sans-serif;
+   font: 16px 'Montserrat', sans-serif;
 }
 
 :-moz-placeholder {
    color: gray;
-   font: 16px verdana, arial, sans-serif;
+   font: 16px 'Montserrat', sans-serif;
 }
 
 ::-moz-placeholder {
    color: gray;  
-   font: 16px verdana, arial, sans-serif;
+   font: 16px 'Montserrat', sans-serif;
 }
 
 :-ms-input-placeholder {  
    color: gray;  
-   font: 16px verdana, arial, sans-serif;
+   font: 16px 'Montserrat', sans-serif;
 }
 
 
