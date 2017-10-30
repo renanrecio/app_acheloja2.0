@@ -620,14 +620,16 @@ function desaparecer_busca_produto(){
  
 <div onclick="desaparecer_busca_loja(); aparecer_busca_produto()">
 
-	<img  src="" width="55%" style=" position:fixed; background-color: #0054a6; top:0em; left:0%; height: 3em; opacity:1; filter:alpha(opacity=100);" /> 
+	<!-- <img  src="" width="55%" style=" position:fixed; background-color: #0054a6; top:0em; left:0%; height: 3em; opacity:1; filter:alpha(opacity=100);" /> -->
+	<div  style=" position:fixed; width: 55%; background-color: #0054a6; top:0em; left:0%; height: 3em; opacity:1; filter:alpha(opacity=100);" > </div> 
 	<img  src="fotos/lupa.png" width="100%"  style=" position: fixed; top:0.6em; left:4%;  width:1.8em; height:1.8em; " /><span id="achar_produto" name="achar_produto" style="position: fixed; font-size: 1em; font-weight:bold; top:1em; left:1.2em; width:50%; color: white;"> Achar Produto </span> 
 </div>
 
 	
 <div onclick="aparecer_busca_loja(); desaparecer_busca_produto()" >
-	<img  src="" width="45%" style=" position:fixed; background-color: #0054a6; top:0em; left:55%; height: 3em; opacity:1; filter:alpha(opacity=100);" /> 
- 
+	<!-- <img  src="" width="45%" style=" position:fixed; background-color: #0054a6; top:0em; left:55%; height: 3em; opacity:1; filter:alpha(opacity=100);" />  -->
+	<div style=" position:fixed; width: 45%; background-color: #0054a6; top:0em; left:55%; height: 3em; opacity:1; filter:alpha(opacity=100);" > </div>
+	
 	<img  src="fotos/lupa.png" width="100%"  style=" position: fixed; top:0.6em; left:58%; width:1.8em; height:1.8em;" /><span  id="achar_loja" name="achar_loja" style="position: fixed; font-size: 1em; font-weight:bold; top:1em; right:0%; width:40%; color: white;"> Achar Loja </span> 
 </div>
  
@@ -635,7 +637,8 @@ function desaparecer_busca_produto(){
 <div id="busca_loja" style="visibility: hidden;">
 
 
-<img src="" width="100%" style="position:fixed; background-color: #0054a6; top:3em; left:0%; height: 9em; opacity:0.90; filter:alpha(opacity=90);" /> 
+<!-- <img src="" width="100%" style="position:fixed; background-color: #0054a6; top:3em; left:0%; height: 9em; opacity:0.90; filter:alpha(opacity=90);" />  -->
+<div  style="position:fixed; width: 100%; background-color: #0054a6; top:3em; left:0%; height: 9em; opacity:0.90; filter:alpha(opacity=90);"></div>  
  
 <input type="text" id="nome_da_loja_buscar" name="nome_da_loja_buscar" value="" placeholder="Escreva o Nome da Loja"  style=" position:fixed; font-size:1em; top:5em; left:10%; height: 1.5em; width: 80%; "/> 
 <input type="button" onclick="buscar_loja()" value="Achar" style=" position:fixed; top:9em; left:40%; height: 2em; width: 20%; font-weight: bold; color:white; background-color: #0054a6; font-size:1em; cursor: pointer; border-radius: 5px;" />
